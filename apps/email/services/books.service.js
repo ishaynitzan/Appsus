@@ -1,6 +1,5 @@
-import { utilService } from "./util-service.js";
-import { storageService } from "./async-storage-service.js";
-import { gBooks } from "../services/books-data.js";
+import { utilService } from "../../../js/services/util-service.js";
+import { storageService } from "../../../js/services/async-storage-service.js";
 
 const BOOKS_KEY = "books";
 const REVIEWS_KEY = "reviews";

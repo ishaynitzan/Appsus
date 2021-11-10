@@ -2,7 +2,7 @@ import appHeader from "../cmps/app-header.cmp.js";
 import appFooter from "../cmps/app-footer.cmp.js";
 import { router } from "./main.routes.js";
 
-const options = {
+const appsus = {
   el: "#appsus",
   router,
   template: `
@@ -18,4 +18,4 @@ const options = {
   },
 };
 
-new Vue(options);
+new Vue(appsus);

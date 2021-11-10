@@ -81,7 +81,8 @@ export default {
             txt: "Save successfully",
             type: "success",
           };
-          eventBus.$emit("msg", msg);
+                    
+          eventBus.$emit("msg"     ,     msg); 
         })
         .catch(() => {
           const msg = {

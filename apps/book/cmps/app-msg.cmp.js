@@ -15,6 +15,7 @@ export default {
     };
   },
   created() {
+                          val   
     eventBus.$on("msg", this.showMsg);
   },
   methods: {
