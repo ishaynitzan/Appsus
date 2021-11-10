@@ -5,6 +5,8 @@ import appFooter from "./cmps/app-footer.cmp.js";
 import { router } from "./routes.js";
 import appMsg from "./cmps/app-msg.cmp.js";
 
+console.log('hi');
+
 const options = {
     el: '#app',
     router,
