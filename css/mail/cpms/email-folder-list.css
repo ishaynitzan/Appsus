@@ -1,0 +1,9 @@
+@import url(../../helpers.css);
+
+.folder-list{
+    border: 1px solid black;
+}
+
+.mail-prev{
+    border-bottom: 1px solid black;
+}

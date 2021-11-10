@@ -2,8 +2,9 @@ export default {
   components: {},
   props: [],
   template: `
-      <section>  
+      <section class='folder-list'>  
         <ul>
+          <li>New Mail</li>
           <li>Inbox</li>
           <li>Starred</li>
           <li>Sent</li>

@@ -14,10 +14,12 @@ export default {
   },
   props: [],
   template: `
-    <section>
-    <email-filter/>
-    <folder-list/>
-    <list-email/>
+    <section class="email-app flex">
+      <folder-list class="main-container"/>
+      <section class="email-body main-container flex column">
+        <email-filter/>
+        <list-email/>
+      </section>
     </section>
     `,
   data() {

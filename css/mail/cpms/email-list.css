@@ -1,5 +1,6 @@
 @import url(../../helpers.css);
 
 .email-list{
-    background-color:green;
+    width: 100%;
+    font-size: 12px;
 }

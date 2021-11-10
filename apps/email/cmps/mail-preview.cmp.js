@@ -4,7 +4,7 @@ export default {
     },
     props: [],
     template: `
-      <section >  
+      <section class="mail-prev">  
       <table>
           <thead></thead>
           <tbody>
