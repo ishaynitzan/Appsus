@@ -1,29 +1,21 @@
-
-import appHeader from "./cmps/app-header.cmp.js";
-import booksApp from "./pages/books-app.js";
-import appFooter from "./cmps/app-footer.cmp.js";
-import { router } from "./routes.js";
-import appMsg from "./cmps/app-msg.cmp.js";
-
-console.log('hi');
+import appHeader from "../cmps/app-header.cmp.js";
+import appFooter from "../cmps/app-footer.cmp.js";
+import { router } from "./main.routes.js";
 
 const options = {
-    el: '#app',
-    router,
-    template: `
+  el: "#appsus",
+  router,
+  template: `
     <section>
-        <app-header/>
-        <app-msg />
-        <router-view />
-        <app-footer/>
+    <app-header class="main-header"/>
+    <router-view class="main-container"/>
+    <app-footer class="main-footer"/>
     </section>
     `,
-    components: {
-        appFooter,
-        booksApp,
-        appHeader,
-        appMsg
-    }
-}
+  components: {
+    appHeader,
+    appFooter,
+  },
+};
 
 new Vue(options);
