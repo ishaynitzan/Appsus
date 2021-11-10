@@ -1,6 +1,7 @@
 @import url(./cpms/email-filter.css);
 @import url(./cpms/email-list.css);
 @import url(./cpms/email-folder-list.css);
+@import url(./cpms/email-compose.css);
 
 
 .email-app{
@@ -9,5 +10,4 @@
 
 .email-body{
     width: 100%;
-    justify-content: flex-start;
 }

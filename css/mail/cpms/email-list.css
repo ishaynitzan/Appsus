@@ -2,5 +2,19 @@
 
 .email-list{
     width: 100%;
-    font-size: 12px;
+    font-size: .8rem;
+}
+
+
+.mail-prev{
+    border-bottom: 1px solid black;
+}
+
+
+.mail-prev table{
+    width: 100%;
+}
+
+.mail-prev tr{
+   max-height: 3rem;
 }

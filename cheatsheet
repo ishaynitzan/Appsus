@@ -1,0 +1,10 @@
+function formatted_date(date)
+{
+   var d = new Date(date);
+   var result="";
+   result += d.getFullYear()+"/"+(d.getMonth()+1)+"/"+d.getDate() + 
+             " "+ d.getHours()+":"+d.getMinutes()+":"+
+             d.getSeconds()+" "+d.getMilliseconds();
+   return result;
+}
+

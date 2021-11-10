@@ -16,7 +16,7 @@
     justify-content: space-between;
     align-items: center;
     height: 5vh;
-    background-color: red;
+    background-color: #d62828;
 }
 
 .main-header h1{
@@ -27,5 +27,5 @@ justify-content: center;
 
 .main-footer{
     height: 5vh;
-    background-color: red;
+    background-color: #d62828;
 }

@@ -1,9 +1,28 @@
 @import url(../../helpers.css);
 
 .folder-list{
+    font-size: .7rem;
     border: 1px solid black;
 }
 
-.mail-prev{
-    border-bottom: 1px solid black;
+.folder-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .7rem;
+    padding: .3rem;
+    width: 60px;
+    border: 0;
+    background-color: #fff;
+    border-radius:0 1rem 1rem 0;
+    transition: background-color .2s;
+}
+
+.folder-btn:hover{
+    background-color: #d628285e;
+    cursor: pointer;
+}
+
+.new-mail{
+    background-color: #d62828;
 }

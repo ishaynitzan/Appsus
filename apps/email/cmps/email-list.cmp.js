@@ -3,12 +3,12 @@ export default {
   components: {  
     mailPreview,
   },
-  props: [],
+  props: ['emailsToShow'],
   template: `
     <section class="email-list"> 
       <ul>
-      <li v-for="num in 5">
-       <mail-preview/>
+      <li v-for="email in emailsToShow">
+       <mail-preview :email="email"/>
       </li>
       </ul> 
     </section>
