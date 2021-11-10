@@ -1,10 +1,16 @@
-
+import mailPreview from "./mail-preview.cmp.js";
 export default {
   components: {  
+    mailPreview,
   },
   props: [],
   template: `
-    <section >  
+    <section class="email-list"> 
+      <ul>
+      <li v-for="num in 5">
+       <mail-preview/>
+      </li>
+      </ul> 
     </section>
     `,
   data() {
