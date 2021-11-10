@@ -40,7 +40,7 @@ function getReviewById(bookId) {
 
 function _createBook() {
   var books = utilService.loadFromStorage(BOOKS_KEY);
-  if (!books || !books) {
+  if (!books || !books.length) {
     books = gBooks;
     utilService.saveToStorage(BOOKS_KEY, books);
   }

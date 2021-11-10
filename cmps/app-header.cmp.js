@@ -11,7 +11,7 @@ export default {
       <nav>
         <router-link to="/">home</router-link> 
         <router-link to="/about">about</router-link> 
-        <router-link to="/about">about</router-link> 
+        <router-link to="/email">Email</router-link> 
       </nav>
       <div>
         ⌬

@@ -1,6 +1,6 @@
 import home from "../pages/home.cmp.js";
 import about from "../pages/about.cmp.js";
-import email from "../apps/email/pages/email-app.js.js"
+import email from "../apps/email/pages/email-app.js"
 
 const routes = [
   {
@@ -12,7 +12,7 @@ const routes = [
     component: about,
   },
   {
-    path: "/mail",
+    path: "/email",
     component: email,
   },
 ];
