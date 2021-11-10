@@ -37,8 +37,8 @@ function getReviewById(bookId) {
   });
 }
 
-function _createBook() {
-  var books = utilService.loadFromStorage(BOOKS_KEY);
+function _createNote() {
+  var notes = utilService.loadFromStorage(NOTES_);
   if (!books || !books) {
     books = gBooks;
     utilService.saveToStorage(BOOKS_KEY, books);
