@@ -1,46 +1,37 @@
 import { utilService } from "../../../js/services/util-service.js";
 import { storageService } from "./async-storage-service.js";
+import { gNotes } from "../services/notes-data.js";
 
-const BOOKS_KEY = "books";
-const REVIEWS_KEY = "reviews";
-_createBook();
+const NOTES_KEY = "note";
+_createNote();
 
 export const booksService = {
   query,
   remove,
   save,
   getById,
-  getReviewById
 };
 
 function query(key) {
   return storageService.query(key);
 }
 
-function remove(bookId) {
-  return storageService.remove(REVIEWS_KEY, bookId);
+function remove(noteId) {
+  return storageService.remove(NOTES_KEY, noteId);
 }
 
-function save(review) {
-  // if (bookId) return storageService.put(REVIEWS_KEY, review);
-  // else
-  return storageService.post(REVIEWS_KEY, review);
+function save(note) {
+  return storageService.post();
 }
 
-function getById(bookId) {
-  return storageService.get(BOOKS_KEY, bookId);
-}
-function getReviewById(bookId) {
-  return storageService.query(REVIEWS_KEY)
-  .then(reviews=>{
-    return reviews.filter(review=> review.bookId === bookId);
-  });
+function getById(noteId) {
+  return storageService.get(NOTES_KEY, noteId);
 }
 
 function _createNote() {
   var notes = utilService.loadFromStorage(NOTES_);
-  if (!books || !books) {
-    books = gBooks;
-    utilService.saveToStorage(BOOKS_KEY, books);
+  if (!notes || !notes.length) {
+    notes = gNotes;
+    utilService.saveToStorage(NOTES_KEY, notes);
   }
 }

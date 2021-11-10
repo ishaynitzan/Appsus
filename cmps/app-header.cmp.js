@@ -12,6 +12,7 @@ export default {
         <router-link to="/">home</router-link> 
         <router-link to="/about">about</router-link> 
         <router-link to="/email">Email</router-link> 
+        <router-link to="/notes">Notes</router-link> 
       </nav>
       <div>
         ⌬
