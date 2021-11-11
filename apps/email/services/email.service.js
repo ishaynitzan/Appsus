@@ -37,7 +37,7 @@ function getReviewById(id) {
 
 function _createEmail() {
   var email = utilService.loadFromStorage(EMAIL_KEY);
-  if (!email || !email) {
+  if (!email || !email.length) {
     email = gEmail;
     utilService.saveToStorage(EMAIL_KEY, email);
   }

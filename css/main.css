@@ -29,3 +29,38 @@ justify-content: center;
     height: 5vh;
     background-color: #d62828;
 }
+.note-adder  {
+    background-clip: padding-box;
+    border: solid transparent;
+    border-width: 1px 6px 1px 1px;
+    min-height: 28px;
+    padding: 100px 0 0;
+    box-shadow: inset 1px 1px 0 rgb(0 0 0 / 10%), inset 0 -1px 0 rgb(0 0 0 / 7%);
+}
+
+.normal-note-pre {
+    display: flex;
+    justify-content: center;
+    height: 15vh;
+    overflow: visible;
+    width: 16vh;
+    background-clip: padding-box;
+    border: solid transparent;
+    border-width: 1px 6px 1px 1px;
+    min-height: 28px;
+    padding: 100px 0 0;
+    border: 1px solid gray;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    box-shadow: inset 1px 1px 0 rgb(0 0 0 / 10%), inset 0 -1px 0 rgb(0 0 0 / 7%);
+    overflow: hidden;
+    position: relative;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-transition-duration: 0.218s;
+    transition-duration: 0.218s;
+    -webkit-transition-property: background,border,opacity,-webkit-box-shadow,-webkit-transform;
+    transition-property: background,border,opacity,box-shadow,transform;
+    -webkit-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+}
