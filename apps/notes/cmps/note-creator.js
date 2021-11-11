@@ -1,30 +1,42 @@
+import { notesService } from "../services/notes-service.js";
 
 export default {
     components: {  
     },
     props: [],
     template: `
-      <section>  
-        <h1>Create a New Note</h1>
-            <div class="note-adder">
-                <textarea v-model="text" placeholder="Edit me"></textarea>
-            </div>
-        <p>New Note: {{ text }}</p>
-        <button @click="add">save</button>
+      <section class="note-creator flex column align-center">  
+        <input type="text" v-model="title" placeholder="Title">
+        <textarea v-model="text" placeholder="Edit me"></textarea>
+        <button @click="saveNote">save</button>
       </section>
       `,
     data() {
       return {
-          text: this.text
+          text: this.text,
+          title: this.title,
+
 
       };
     },
     created() {  
     },
     methods: {
-        add(){
-            console.log('added', this.text);
-        }
+        saveNote() {
+            const note =  {
+                id: null,
+                type: "note-txt",
+                isPinned: false,
+                info: {
+                    txt: this.text,
+                    title: this.title,
+                    },
+                madeAt: Date.now(),
+            };
+            notesService.save(note).then(()=>{
+                this.$emit("query")
+            });
+          },
     },
     computed: {
     },

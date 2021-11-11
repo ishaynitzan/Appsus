@@ -3,7 +3,7 @@
 @import url(./notes/notes-app.css);
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
 :root {
-  font-size: 12px;
+  font-size: 16px;
   --heading-height: 10em;
 }
 

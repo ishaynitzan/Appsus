@@ -1,4 +1,7 @@
-@import url(../helpers.css);
+@import url(./notes-filter.css);
+@import url(./notes-search.css);
+@import url(./note-creator.css);
+@import url(./notes-list.css);
 .note-adder  {
     background-clip: padding-box;
     border: solid transparent;
@@ -8,23 +11,25 @@
     box-shadow: inset 1px 1px 0 rgb(0 0 0 / 10%), inset 0 -1px 0 rgb(0 0 0 / 7%);
 }
 
-.notes-app {
-
+.notes-body {
+width: 100%;
 }
 
 .note {
-    height: 200px;
+    height: 100px;
     overflow: visible;
-    width: 200px;
+    width: 100px;
+    background-color: #fcbf49;
     background-clip: padding-box;
     border: solid transparent;
     border-width: 1px 6px 1px 1px;
     min-height: 28px;
     padding: 20px;
-    border: 5px solid rgb(167, 145, 145);
+    margin: 4px;
+    border: 5px solid #003049;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    box-shadow: inset 1px 1px 0 rgb(0 0 0 / 10%), inset 0 -1px 0 rgb(0 0 0 / 7%);
+    box-shadow: 1px #074161; 
     overflow: hidden;
     position: relative;
     -webkit-border-radius: 8px;
@@ -35,4 +40,10 @@
     transition-property: background,border,opacity,box-shadow,transform;
     -webkit-transition-timing-function: ease-in;
     transition-timing-function: ease-in;
+}
+.note:hover {
+    background: linear-gradient(to right, #ce6d06 0%, #f88204 50%, #d46f03 100%);
+    color: #003049;
+    box-shadow: 1px #003049;
+
 }
