@@ -6,14 +6,16 @@ export default {
     template: `
       <section>  
         <h1>Create a New Note</h1>
-        <textarea v-model="text" placeholder="Edit me"></textarea>
+            <div class="note-adder">
+                <textarea v-model="text" placeholder="Edit me"></textarea>
+            </div>
         <p>New Note: {{ text }}</p>
         <button @click="add">save</button>
       </section>
       `,
     data() {
       return {
-          text,
+          text: this.text
 
       };
     },

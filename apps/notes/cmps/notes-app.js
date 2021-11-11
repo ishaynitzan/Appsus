@@ -1,12 +1,13 @@
-import notePrev from "../cmps/note-preview.js";
+import notePreview from "../cmps/note-preview.js";
 import noteCreator from "../cmps/note-creator.js";
 import noteFilter from "../cmps/note-filter.js";
 import noteSearch from "../cmps/note-search.js";
+import { notesService } from "../services/notes-service.js";
 
 
 export default {
   components: {
-    notePrev,
+    notePreview,
     noteCreator,
     noteFilter,
     noteSearch,
@@ -19,7 +20,32 @@ export default {
     <note-filter/>
     <note-search/>
     <note-creator/>
-    <note-prev/>
+    <note-preview :notes="notesForPreview"/>
   </section>
     `,
-};
+    data() {
+      return {
+        notes: null,
+      };
+    },
+    created() {
+      this.query();
+    },
+    methods: {
+      query() {
+        notesService.query().then((notesFromStorage) => {
+          this.notes = notesFromStorage;
+          console.log('this.notes', this.notes);
+        });
+      },
+    },
+    computed: {
+      notesForPreview(){
+        return this.notes;
+      }
+    },
+    destroyed() {},
+    watch: {},
+  };
+  
+

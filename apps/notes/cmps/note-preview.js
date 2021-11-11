@@ -2,25 +2,29 @@ export default {
 
     components: {
     },
-    props: ["note"],
+    props: ["notes"],
     template: `
-    <ul>
-        <h2>note</h2> 
-        <li>v-for=“(note, idx) in gNotes"</li>
-    </ul>
+    <section>
+        <ul>
+           <li v-for="note in notes" :key="note.id">
+                <div class="normal-note-pre"> {{ note.info.txt }} </div>
+           </li>
+        </ul>
+    </section>
     `,
     data() {
         return {
-
         }
     },
     created() {
+        
 
     },
     methods: {
 
     },
     computed: {
+        
        
     
        
