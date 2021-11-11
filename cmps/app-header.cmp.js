@@ -7,12 +7,12 @@ export default {
   props: [],
   template: `
     <header>
-      <h1>hallo appsus</h1>
+      <h1>Appsus</h1>
       <nav>
-        <router-link to="/">home</router-link> 
-        <router-link to="/about">about</router-link> 
-        <router-link to="/email">Email</router-link> 
-        <router-link to="/notes">Notes</router-link> 
+        <router-link class="link-btn" to="/">home</router-link> 
+        <router-link class="link-btn" to="/about">about</router-link> 
+        <router-link class="link-btn" to="/email">Email</router-link> 
+        <router-link class="link-btn" to="/notes">Notes</router-link> 
       </nav>
       <div>
         ⌬

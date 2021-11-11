@@ -1,4 +1,12 @@
+@import url(./helpers.css);
 @import url(./mail/email-app.css);
+@import url(./notes/notes-app.css);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
+:root {
+	font-size: 12px;
+	--heading-height: 10em;
+}
+
 
 *{ 
   box-sizing: border-box;
@@ -9,58 +17,72 @@
 
 .main-container{
     height: 90vh;
+    padding: calc(var(--heading-height) + 1.5vw) 4em 0;
 }
 
 .main-header{
+    position: fixed;
+	width: 100%;
+	height: var(--heading-height);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 5vh;
-    background-color: #d62828;
+    /* height: 5vh; */
+    /* background-color: #d62828; */
+}
+.main-header::before {
+	content: "";
+	display: block;
+	position: absolute;
+	left: 0;
+	bottom: 3em;
+	width: 100%;
+	height: calc(var(--heading-height) + 1em);
+	z-index: -1;
+	transform: skewY(-4.5deg);
+	background: 
+		linear-gradient(#d62828, #b62020),
+		linear-gradient(#4e4376, #2b5876);
+	background-size: cover;
+	border-bottom: 1em solid #f77f00;
+}
+.link-btn{
+    background: linear-gradient(to right, #002a41 0%, #013552 50%, #00273b 100%);
+    color: #eae2b7;
+    border-radius: 8px;
+    padding: 8px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 16px;
+    -webkit-transition: background 1s ease-out;
+    -moz-transition: background 1s ease-out;
+    -o-transition: background 1s ease-out;
+    transition: background 1s ease-out;
+    box-shadow: none;
+    cursor: pointer;
+    border: none;
+    margin-right: 8px;
+}
+
+.link-btn:hover {
+    background: linear-gradient(to right, #ce6d06 0%, #f88204 50%, #d46f03 100%);
+    color: #faf8f0;
+
 }
 
 .main-header h1{
-display: flex;
+    font-size: calc(2.8em + 2.6vw);
+	font-weight: 720;
+	letter-spacing: .01em;
+	padding: 0 0 0 3.5rem;
+	text-shadow: .042em .082em .052em #003049;
+	color: #eae2b7;    
+/*display: flex;
 flex-grow: 1;
-justify-content: center;
+justify-content: center;*/
 }
 
 .main-footer{
     height: 5vh;
     background-color: #d62828;
-}
-.note-adder  {
-    background-clip: padding-box;
-    border: solid transparent;
-    border-width: 1px 6px 1px 1px;
-    min-height: 28px;
-    padding: 100px 0 0;
-    box-shadow: inset 1px 1px 0 rgb(0 0 0 / 10%), inset 0 -1px 0 rgb(0 0 0 / 7%);
-}
-
-.normal-note-pre {
-    display: flex;
-    justify-content: center;
-    height: 15vh;
-    overflow: visible;
-    width: 16vh;
-    background-clip: padding-box;
-    border: solid transparent;
-    border-width: 1px 6px 1px 1px;
-    min-height: 28px;
-    padding: 100px 0 0;
-    border: 1px solid gray;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    box-shadow: inset 1px 1px 0 rgb(0 0 0 / 10%), inset 0 -1px 0 rgb(0 0 0 / 7%);
-    overflow: hidden;
-    position: relative;
-    -webkit-border-radius: 8px;
-    border-radius: 8px;
-    -webkit-transition-duration: 0.218s;
-    transition-duration: 0.218s;
-    -webkit-transition-property: background,border,opacity,-webkit-box-shadow,-webkit-transform;
-    transition-property: background,border,opacity,box-shadow,transform;
-    -webkit-transition-timing-function: ease-in;
-    transition-timing-function: ease-in;
 }
