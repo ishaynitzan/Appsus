@@ -2,7 +2,7 @@
 export default {
     components: {  
     },
-    props: [],
+    props: ['unreadMail'],
     template: `
       <section class="email-filter flex space-evenly align-center"> 
         <div class="flex space-evenly">
@@ -14,7 +14,8 @@ export default {
         <div class="fa fa-sliders"></div>
         <input type="text"> 
         <div class="fa fa-search"></div>
-        </div>
+      </div>
+      <div>Unread:{{unreadMail}}</div>
       </section>
       `,
     data() {

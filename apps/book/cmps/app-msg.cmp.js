@@ -14,8 +14,7 @@ export default {
 
     };
   },
-  created() {
-                          val   
+  created() {                   
     eventBus.$on("msg", this.showMsg);
   },
   methods: {

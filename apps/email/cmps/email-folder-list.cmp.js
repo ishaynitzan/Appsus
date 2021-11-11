@@ -4,26 +4,26 @@ export default {
   template: `
       <section class='folder-list'>  
         <ul>
-          <li><button class="new-mail folder-btn" @click="showFolder('new')">New Mail</button></li>
-          <li><button class="folder-btn" @click="showFolder('inbox')">Inbox</button></li>
-          <li><button class="folder-btn" @click="showFolder('starred')">Starred</button></li>
-          <li><button class="folder-btn" @click="showFolder('sent')">Sent</button></li>
-          <li><button class="folder-btn" @click="showFolder('drafts')">Drafts</button></li>
-          <li><button class="folder-btn" @click="showFolder('all')">All Mail</button></li>
-          <li><button class="folder-btn" @click="showFolder('garbage')">Garbage</button></li>
+          <li><button :class="{active: 'new'=== active}" class="new-mail folder-btn" @click="showFolder('new')">New Mail</button></li>
+          <li><button :class="{active: 'inbox'=== active}" class="folder-btn" @click="showFolder('inbox')">Inbox</button></li>
+          <li><button :class="{active: 'starred'=== active}" class="folder-btn" @click="showFolder('starred')">Starred</button></li>
+          <li><button :class="{active: 'sent'=== active}" class="folder-btn" @click="showFolder('sent')">Sent</button></li>
+          <li><button :class="{active: 'drafts'=== active}" class="folder-btn" @click="showFolder('drafts')">Drafts</button></li>
+          <li><button :class="{active: 'all'=== active}" class="folder-btn" @click="showFolder('all')">All Mail</button></li>
+          <li><button :class="{active: 'garbage'=== active}" class="folder-btn" @click="showFolder('garbage')">Garbage</button></li>
         </ul>
       </section>
       `,
   data() {
     return {
-      isCompose: null,
+      active : 'all'
     };
   },
   created() {},
   methods: {
-    showFolder(val){
-      this.isCompose = val;
-      this.$emit("selectFolder", this.isCompose)
+    showFolder(filter){
+      this.active = filter;
+      this.$emit("filterBy", filter)
     },
   },
   computed: {},

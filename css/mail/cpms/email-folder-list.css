@@ -1,28 +1,34 @@
 @import url(../../helpers.css);
 
-.folder-list{
-    font-size: .7rem;
-    border: 1px solid black;
+.folder-list {
+  font-size: 0.7rem;
+  border: 1px solid black;
 }
 
-.folder-btn{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: .7rem;
-    padding: .3rem;
-    width: 60px;
-    border: 0;
-    background-color: #fff;
-    border-radius:0 1rem 1rem 0;
-    transition: background-color .2s;
+.folder-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.7rem;
+  padding: 0.3rem;
+  width: 60px;
+  border: 0;
+  background-color: #fff;
+  border-radius: 0 1rem 1rem 0;
+  transition: background-color 0.2s;
 }
 
-.folder-btn:hover{
-    background-color: #d628285e;
-    cursor: pointer;
+.folder-btn:hover {
+  cursor: pointer;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
-.new-mail{
-    background-color: #d62828;
+.new-mail {
+  background-color: #d62828;
+}
+
+.active {
+  background-color: #d62828a9;
 }

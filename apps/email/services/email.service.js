@@ -10,7 +10,6 @@ export const emailService = {
   remove,
   save,
   getById,
-  getReviewById,
 };
 
 function query() {
@@ -29,16 +28,12 @@ function save(email) {
 function getById(id) {
   return storageService.get(EMAIL_KEY, id);
 }
-function getReviewById(id) {
-  return storageService.query(EMAIL_KEY).then((emails) => {
-    return emails.filter((email) => email.id === id);
-  });
-}
 
 function _createEmail() {
-  var email = utilService.loadFromStorage(EMAIL_KEY);
-  if (!email || !email) {
-    email = gEmail;
-    utilService.saveToStorage(EMAIL_KEY, email);
+  var emails = utilService.loadFromStorage(EMAIL_KEY);
+  if (!emails || !emails.length) {
+    console.log('_createEmail')
+    emails = gEmail;
+    utilService.saveToStorage(EMAIL_KEY, emails);
   }
 }

@@ -18,7 +18,7 @@ export default {
         <hr>
         <nav class="flex">
           <div class="fa fa-reply"></div>
-          <div class="fa fa fa-trash-o"></div>
+          <div @click="deleteEmail(email.id)" class="fa fa fa-trash-o"></div>
           </nav>
       </section>
       `,
@@ -26,7 +26,12 @@ export default {
     return {};
   },
   created() {},
-  methods: {},
+  methods: {
+    deleteEmail(id){
+      console.log(id);
+      
+    }
+  },
   computed: {},
   destroyed() {},
   watch: {},
