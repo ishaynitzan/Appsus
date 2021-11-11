@@ -7,13 +7,11 @@ export default {
     },
     props: ["notes"],
     template: `
-    <section>
-        <ul class="notes-preview">
+    <section class="notes-list">
+        <ul>
            <li v-for="note in notes" :key="note.id" class="note-preview-container flex">
                 <div class="justify-center align-center flex column">
                     <note-preview :note="note" @click="enterNote(note.id)"/>
-                    <button @click="deleteNote(note.id)">X</button>
-                    <button @click="editNote(note.id)">EDIT</button>
                  </div>
            </li>
         </ul>
@@ -28,13 +26,7 @@ export default {
 
     },
     methods: {
-        deleteNote(id) {
-
-        },
-        editNote(id) {
-
-        }
-
+        
 
     },
     computed: {

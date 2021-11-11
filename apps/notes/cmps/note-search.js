@@ -4,11 +4,11 @@ export default {
     },
     props: [],
     template: `
-      <section>  
-        <h1>Search</h1> 
-        <div class="search-bar">
+      <section class="search-bar flex justify-center">  
+
             <input type="text" placeholder="Search" class="search-input">
-        </div>
+       
+        <div @click class="fa fa-search"></div>
       </section>
       `,
     data() {
