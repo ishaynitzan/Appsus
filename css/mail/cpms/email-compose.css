@@ -1,14 +1,18 @@
 @import url(../../helpers.css);
 
-.email-compose header{
-background-color: #d62828;
+.email-compose header {
+  background-color: #d62828;
 }
-.email-compose nav{
-background-color: #d62828;
+.email-compose nav {
+  background-color: #d62828;
 }
 
 textarea {
-    margin: 1rem 0;
-    resize: none;
-    width: 100%;
- }
+  margin: 1rem 0;
+  resize: none;
+  width: 100%;
+}
+
+.open-mail {
+  background-color: #002f491f;
+}

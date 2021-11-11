@@ -8,7 +8,7 @@ export default {
     <section class="email-list"> 
       <ul>
       <li v-for="email in emailsToShow" :key="email.id">
-       <email-preview :email="email"/>
+       <email-preview :email="email" @openDetails="$emit('openDetails')"/>
       </li>
       </ul> 
     </section>

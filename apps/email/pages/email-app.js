@@ -3,7 +3,8 @@ import emailFilter from "../cmps/email-filter.cmp.js";
 import folderList from "../cmps/email-folder-list.cmp.js";
 import emailList from "../cmps/email-list.cmp.js";
 import mailPreview from "../cmps/email-preview.cmp.js";
-import compose from "../pages/email-compose.js";
+import composeEmail from "../pages/email-compose.js";
+import emailDetails from "./email-details.js";
 import { eventBus } from "../../../js/services/event-bus.service.js";
 
 export default {
@@ -13,7 +14,8 @@ export default {
     folderList,
     emailList,
     mailPreview,
-    compose,
+    composeEmail,
+    emailDetails
   },
   props: [],
   template: `
@@ -21,8 +23,9 @@ export default {
       <folder-list @filterBy="setFilter" class="main-container"/>
       <section class="email-body main-container flex column">
         <email-filter  @search="setSearchKey" :unreadMail="unread" @showUnread="setFilter" @sortEmail="setSort" />
-        <compose v-if="filterBy === 'new'"/>
-        <email-list v-else :emailsToShow="emailsToShow"/>
+        <compose-email v-if="filterBy === 'new'"/>
+        <email-details v-else-if="filterBy === 'details'" @previousPage="setFilter(prevFilterBy)"  @deleteEmail="deleteEmail"/>
+        <email-list v-else :emailsToShow="emailsToShow" @openDetails="setFilter('details')"/>
       </section>
     </section>
     `,
@@ -30,6 +33,7 @@ export default {
     return {
       emails: null,
       filterBy: null,
+      prevFilterBy: null,
       searchKey: null,
       unread: null,
       sortEmail: null,
@@ -145,5 +149,9 @@ export default {
     },
   },
   destroyed() {},
-  watch: {},
+  watch: {
+    filterBy : function (newVal,oldVal){
+      this.prevFilterBy = oldVal;
+    }
+  },
 };

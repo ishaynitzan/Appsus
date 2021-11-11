@@ -6,7 +6,7 @@ export default {
   template: `
       <section class="email-compose flex column"> 
         <header class="flex space-between">
-          <span>New Message</span>
+          <span>New Mail</span>
           <div>
             <div class="fa fa-window-minimize"></div>
             <div class="fa fa fa-compress"></div>
@@ -41,7 +41,10 @@ export default {
         from: "team2@email.com",
         to: this.to,
       };
-      emailService.save(email);
+      emailService.save(email).then(()=>{
+        //להעבור לדף הראשי
+      })
+      ;
     },
   },
   computed: {},
