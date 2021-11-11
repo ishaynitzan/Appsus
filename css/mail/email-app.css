@@ -4,10 +4,23 @@
 @import url(./cpms/email-compose.css);
 
 
-.email-app{
-  
+.email-app>*{
 }
 
 .email-body{
     width: 100%;
+}
+
+.fa{
+    padding: 4px;
+    border-radius: 50%;
+    transition: opacity .2s ,background-color .2s;
+    color: #003049;
+}
+.fa:hover{
+cursor: pointer;
+padding: 4px;
+opacity: .7;
+border-radius: 50%;
+background-color: #002f4928;
 }

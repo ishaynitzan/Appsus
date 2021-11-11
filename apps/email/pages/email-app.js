@@ -20,7 +20,7 @@ export default {
     <section class="email-app flex">
       <folder-list @filterBy="setFilter" class="main-container"/>
       <section class="email-body main-container flex column">
-        <email-filter :unreadMail="unread"/>
+        <email-filter  @search="setSearchKey" :unreadMail="unread" @showUnread="setFilter" @sortEmail="setSort" />
         <compose v-if="filterBy === 'new'"/>
         <email-list v-else :emailsToShow="emailsToShow"/>
       </section>
@@ -30,12 +30,15 @@ export default {
     return {
       emails: null,
       filterBy: null,
+      searchKey: null,
       unread: null,
+      sortEmail: null,
     };
   },
   created() {
     this.loadEmail();
     eventBus.$on("changeOpenMail", this.changeOpenMail);
+    eventBus.$on("deleteEmail", this.deleteEmail);
   },
   methods: {
     loadEmail() {
@@ -47,31 +50,98 @@ export default {
     changeOpenMail(id) {
       emailService.getById(id).then((email) => {
         email.isRead = !email.isRead;
-        emailService.save(email);
-        eventBus.$emit(`changeOpenMail-${email.id}`, email.isRead);
-        this.loadEmail();
+        emailService.save(email).then(() => {
+          eventBus.$emit(`changeOpenMail-${email.id}`, email.isRead);
+          this.loadEmail();
+        });
       });
     },
     setFilter(filter) {
       this.filterBy = filter;
     },
+    setSearchKey(key) {
+      this.searchKey = key;
+    },
+    deleteEmail(id) {
+      emailService.remove(id).then(() => {
+        this.loadEmail();
+      });
+    },
+    searchWords(words) {
+      return this.emails.filter((email) => {
+        var key = words.toLowerCase();
+        var found = false;
+        for (const value in email) {
+          const val = "" + email[value];
+          if (val.toLowerCase().includes(key)) found = true;
+        }
+        return found;
+      });
+    },
+    setSort(val) {
+      this.sortEmail = val;
+    },
+    sortBy(emails) {
+      switch (this.sortEmail) {
+        case "alpha asc":
+          return emails.sort((a, b) => {
+            if (a.subject < b.subject) return -1;
+            if (a.subject > b.subject) return 1;
+            return 0;
+          });
+        case "alpha desc":
+          return emails.sort((a, b) => {
+            if (a.subject > b.subject) return -1;
+            if (a.subject < b.subject) return 1;
+            return 0;
+          });
+        case "old forward":
+          return emails.sort((a, b) => {
+            if (a.sentAt > b.sentAt) return -1;
+            if (a.sentAt < b.sentAt) return 1;
+            return 0;
+          });
+          case " new forward":
+          default:
+          return emails.sort((a, b) => {
+            if (a.sentAt < b.sentAt) return -1;
+            if (a.sentAt > b.sentAt) return 1;
+            return 0;
+          });
+      }
+    },
   },
   computed: {
     emailsToShow() {
-      if(!this.emails) return
-      switch (this.filterBy) {
-        case "sent":
-          console.log("switch sent");
-          return this.emails.filter(
-            (email) => email.from === "team2@email.com"
-          );
-        default:
+      if (!this.emails) return;
+
+      var emailsToShow = null;
+      if (this.searchKey) {
+        emailsToShow = this.searchWords(this.searchKey);
+      } else {
+        switch (this.filterBy) {
+          case "sent":
+            console.log("switch sent");
+            emailsToShow = this.emails.filter(
+              (email) => email.from === "team2@email.com"
+            );
+            break;
+          case "unread":
+            console.log("switch unread");
+            emailsToShow = this.emails.filter(
+              (email) => email.isRead === false
+            );
+            break;
+          default:
           case "all":
-          console.log("switch all");
-          return this.emails.filter(
-            (email) => email.from !== "team2@email.com"
-          );
+            console.log("switch all");
+            emailsToShow = this.emails.filter(
+              (email) => email.from !== "team2@email.com"
+            );
+            break;
+        }
       }
+      return this.sortBy(emailsToShow);
     },
   },
   destroyed() {},

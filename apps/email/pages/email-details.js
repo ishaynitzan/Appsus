@@ -1,3 +1,5 @@
+import { emailService } from "../services/email.service.js";
+import { eventBus } from "../../../js/services/event-bus.service.js";
 export default {
   components: {},
   props: ["email"],
@@ -8,7 +10,6 @@ export default {
           <div>
             <div class="fa fa-window-minimize" @click="$emit('close')"></div>
             <div class="fa fa fa-compress"></div>
-            <div class="fa fa fa-times"></div>
           </div>
         </header>
         <div>From: <span>{{email.from}}</span></div>
@@ -28,8 +29,10 @@ export default {
   created() {},
   methods: {
     deleteEmail(id){
-      console.log(id);
-      
+      if(confirm('Do you sure?')){
+      this.$emit('close')
+      eventBus.$emit("deleteEmail",id)
+      }
     }
   },
   computed: {},
