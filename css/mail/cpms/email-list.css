@@ -2,7 +2,6 @@
 
 .email-list{
     width: 100%;
-    font-size: .8rem;
     overflow-y: scroll;
 }
 

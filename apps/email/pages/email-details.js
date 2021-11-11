@@ -8,7 +8,7 @@ export default {
         <header class="flex space-between">
           <div></div>
           <div>
-            <div class="fa fa fa-compress" @click.stop.prev="previousPage"></div>
+            <div @click.stop.prev="previousPage" class="fa fa fa-compress" title="Compress"></div>
           </div>
         </header>
         <div>From: <span>{{from}}</span></div>
@@ -17,8 +17,8 @@ export default {
         <p>{{body}}</p>
         <hr>
         <nav class="flex">
-          <div  class="fa fa-reply"></div>
-          <div @click="deleteEmail(email.id)" class="fa fa fa-trash-o"></div>
+          <div  class="fa fa-reply" title="Reply"></div>
+          <div @click="deleteEmail(email.id)" class="fa fa fa-trash-o" title="Delete"></div>
         </nav>
     </section>
       `,

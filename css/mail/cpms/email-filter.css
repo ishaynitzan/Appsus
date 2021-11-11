@@ -1,9 +1,13 @@
 @import url(../../helpers.css);
 
-.email-filter, .email-sort{
+.email-filter{
 border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
-
 .email-sort{
-    font-size: .7rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.email-sort >*{
+  
+margin: 0 1rem;
 }

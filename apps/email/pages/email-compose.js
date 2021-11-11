@@ -8,8 +8,8 @@ export default {
         <header class="flex space-between">
           <span>New Mail</span>
           <div>
-            <div class="fa fa-window-minimize"></div>
-            <div class="fa fa fa-compress"></div>
+            <div class="fa fa-window-minimize" title="Minimize"></div>
+            <div class="fa fa fa-compress" title="compress"></div>
             <div class="fa fa fa-times"></div>
           </div>
         </header>
@@ -18,7 +18,7 @@ export default {
         <textarea  v-model="body" name="" id="" cols="30" rows="10" ></textarea>
         <nav class="flex space-between">
           <button @click="sendEmail">Send</button>
-          <div class="fa fa fa-trash-o"></div>
+          <div class="fa fa fa-trash-o" title="Delete"></div>
           </nav>
       </section>
       `,

@@ -15,7 +15,7 @@ export default {
     emailList,
     mailPreview,
     composeEmail,
-    emailDetails
+    emailDetails,
   },
   props: [],
   template: `
@@ -101,15 +101,15 @@ export default {
           });
         case "old forward":
           return emails.sort((a, b) => {
-            if (a.sentAt > b.sentAt) return -1;
-            if (a.sentAt < b.sentAt) return 1;
-            return 0;
-          });
-          case " new forward":
-          default:
-          return emails.sort((a, b) => {
             if (a.sentAt < b.sentAt) return -1;
             if (a.sentAt > b.sentAt) return 1;
+            return 0;
+          });
+        case " new forward":
+        default:
+          return emails.sort((a, b) => {
+            if (a.sentAt > b.sentAt) return -1;
+            if (a.sentAt < b.sentAt) return 1;
             return 0;
           });
       }
@@ -150,8 +150,8 @@ export default {
   },
   destroyed() {},
   watch: {
-    filterBy : function (newVal,oldVal){
+    filterBy: function (newVal, oldVal) {
       this.prevFilterBy = oldVal;
-    }
+    },
   },
 };

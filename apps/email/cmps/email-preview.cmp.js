@@ -12,12 +12,12 @@ export default {
       <thead></thead>
       <tbody>
         <tr @click="changePeak" class="flex" :class="{'open-mail' : isRead}">
-          <th class="flex justify-center"><div class="fa fa-star-o"></div></th>
+          <th class="flex justify-center"><div @click.stop.prev="addStar(email.id)" :class="[isStared ? 'fa fa-star' : 'fa fa-star-o']" title="Stared"></div></th>
           <th class="flex align-center subject"><div>{{email.subject}}</div><th/>
           <th class="flex grow-3 align-center">
             <long-text :txt="email.body" :num="7"/>
           </th> 
-          <th class="flex align-center"><div @click.stop.prev="changeOpenMail" :class="[isRead ? 'fa fa-envelope-open-o' : 'fa fa-envelope']"></div></th> 
+          <th class="flex align-center"><div @click.stop.prev="changeOpenMail" :class="[isRead ? 'fa fa-envelope-open-o' : 'fa fa-envelope']" title="Un/Read"></div></th> 
           <th class="flex align-center">{{formatted_date(email.sentAt)}}</th> 
         </tr>    
       </tbody>
@@ -26,8 +26,8 @@ export default {
         <header class="flex space-between">
           <div></div>
           <div>
-            <div class="fa fa-window-minimize" @click.stop.prev="changePeak"></div>
-            <div @click="openDetails(email.id)" class="fa fa fa-expand"></div>
+            <div @click.stop.prev="changePeak"  class="fa fa-window-minimize" title="Minimize"></div>
+            <div @click="openDetails(email.id)" class="fa fa-expand" title="Expand"></div>
           </div>
         </header>
         <div>From: <span>{{email.from}}</span></div>
@@ -36,8 +36,8 @@ export default {
         <p>{{email.body}}</p>
         <hr>
         <nav class="flex">
-          <div class="fa fa-reply"></div>
-          <div @click="deleteEmail(email.id)" class="fa fa fa-trash-o"></div>
+          <div class="fa fa-reply" title="Reply"></div>
+          <div @click="deleteEmail(email.id)" class="fa fa fa-trash-o" title="Delete"></div>
         </nav>
     </section>
   </section>
@@ -46,6 +46,7 @@ export default {
     return {
       isPeak: null,
       isRead: this.email.isRead,
+      isStared: false ,
     };
   },
   created() {
@@ -54,6 +55,9 @@ export default {
   methods: {
     changePeak() {
       this.isPeak = !this.isPeak;
+      if(this.isPeak && !this.isRead){ 
+        this.changeOpenMail();
+      } 
     },
     changeOpenMail() {
       eventBus.$emit("changeOpenMail", this.email.id);
@@ -77,6 +81,9 @@ export default {
     openDetails(id) {
       this.$emit("openDetails");
       this.$router.push("/email/details/" + `${id}`).catch(() => {});
+    },
+    addStar(id) {
+      this.isStared = !this.isStared;
     },
   },
   computed: {},

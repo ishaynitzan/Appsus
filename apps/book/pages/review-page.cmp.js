@@ -14,7 +14,7 @@ export default {
             <div>
               Your review<br><textarea v-model="review.txt" cols="30" rows="10"></textarea>
             </div><br>                   
-            <div><span v-for="num in 5" class="fa fa-star review-star" :class="{checked: num<=review.rate}" @mouseover="addRate(num)"></span></div>                     
+            <div><span v-for="num in 5" class="fa fa-star review-star" :class="{checked: num<=review.rate}" @mouseover="addRate(num)" title="Stared"></span></div>                     
             <button type="submit" :disabled="!review.txt || !review.name || !review.rate">Save</button>                
             </form>
         <table>

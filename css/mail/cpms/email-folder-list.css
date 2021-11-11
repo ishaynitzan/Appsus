@@ -1,17 +1,16 @@
 @import url(../../helpers.css);
 
 .folder-list {
-  font-size: 0.7rem;
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.folder-btn {
+.email-folder-btn {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 0.7rem;
+  font-size: 1.2rem;
   padding: 0.3rem;
-  width: 60px;
+  width: 6em;
   border: 0;
   background-color: rgba(255, 255, 255, 0);
   border-radius: 0 1rem 1rem 0;
@@ -21,7 +20,7 @@
   transition: background-color 0.2s;
 }
 
-.folder-btn:hover {
+.email-folder-btn:hover {
   cursor: pointer;
   border-top: 1px solid rgba(0, 0, 0, 0.2);
   border-right: 1px solid rgba(0, 0, 0, 0.2);
@@ -35,4 +34,8 @@
 
 .active {
   background-color: #d62828a9;
+}
+
+.fa-star::before{
+  color: #fcbf59;
 }
