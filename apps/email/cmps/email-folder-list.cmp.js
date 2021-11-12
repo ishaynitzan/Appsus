@@ -4,19 +4,22 @@ export default {
   template: `
       <section class='folder-list'>  
         <ul>
-          <li><button :class="{active: 'new'=== active}" class="new-mail email-folder-btn" @click="showFolder('new')">New Mail</button></li>
-          <li><button :class="{active: 'inbox'=== active}" class="email-folder-btn" @click="showFolder('inbox')">Inbox</button></li>
-          <li><button :class="{active: 'starred'=== active}" class="email-folder-btn" @click="showFolder('starred')">Starred</button></li>
-          <li><button :class="{active: 'sent'=== active}" class="email-folder-btn" @click="showFolder('sent')">Sent</button></li>
-          <li><button :class="{active: 'drafts'=== active}" class="email-folder-btn" @click="showFolder('drafts')">Drafts</button></li>
-          <li><button :class="{active: 'all'=== active}" class="email-folder-btn" @click="showFolder('all')">All Mail</button></li>
-          <li><button :class="{active: 'garbage'=== active}" class="email-folder-btn" @click="showFolder('garbage')">Garbage</button></li>
+          <li><button :class="{active: 'new'=== active}" class="Compose-mail email-folder-btn" @click="showFolder('new')"><div class="fa fa-plus"> &nbsp</div><span>Compose</span></button></li>
+          <li><button :class="{active: 'inbox'=== active}" class="email-folder-btn" @click="showFolder('inbox')">
+           <div class="fa fa-inbox"> &nbsp</div>
+           <span>Inbox</span></button></li>
+          <li><button :class="{active: 'starred'=== active}" class="email-folder-btn" @click="showFolder('starred')"><div class="fa fa-star-o"> &nbsp</div>
+          <span>Starred</span></button></li>
+          <li><button :class="{active: 'sent'=== active}" class="email-folder-btn" @click="showFolder('sent')"><div class="fa fa-send-o"> &nbsp</div><span>Sent</span></button></li>
+          <li><button :class="{active: 'drafts'=== active}" class="email-folder-btn" @click="showFolder('drafts')"><div class="fa fa-file-o"> &nbsp</div><span>Drafts</span></button></li>
+          <li><button :class="{active: 'all'=== active}" class="email-folder-btn" @click="showFolder('all')"><div class="fa fa-envelope-o"> &nbsp</div><span>All Mail</span></button></li>
+          <li><button :class="{active: 'garbage'=== active}" class="email-folder-btn" @click="showFolder('garbage')"><div class="fa fa-trash-o"> &nbsp</div><span>Garbage</span></button></li>
         </ul>
       </section>
       `,
   data() {
     return {
-      active : 'all'
+      active : 'inbox'
     };
   },
   created() {},

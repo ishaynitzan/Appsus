@@ -6,19 +6,16 @@ export default {
   template: `
       <section class="email-compose flex column"> 
         <header class="flex space-between">
-          <span>New Mail</span>
+          <span>&nbsp&nbspCompose new mail</span>
           <div>
-            <div class="fa fa-window-minimize" title="Minimize"></div>
-            <div class="fa fa fa-compress" title="compress"></div>
-            <div class="fa fa fa-times"></div>
+            <div class="btn fa fa-times"></div>
           </div>
         </header>
-        <input type="text" v-model="to" placeholder="To">
-        <input type="text" v-model="subject" placeholder="Topic">
+        <input type="text" v-model="to" placeholder="To:">
+        <input type="text" v-model="subject" placeholder="Topic:">
         <textarea  v-model="body" name="" id="" cols="30" rows="10" ></textarea>
         <nav class="flex space-between">
-          <button @click="sendEmail">Send</button>
-          <div class="fa fa fa-trash-o" title="Delete"></div>
+          <button @click="sendEmail" :disabled="!to || !subject" class="send-btn"><div class="fa fa-send">&nbsp</div>Send</button>
           </nav>
       </section>
       `,
@@ -29,7 +26,8 @@ export default {
       body: null,
     };
   },
-  created() {},
+  created() {
+  },
   methods: {
     sendEmail() {
       const email =  {
@@ -41,10 +39,14 @@ export default {
         from: "team2@email.com",
         to: this.to,
       };
-      emailService.save(email).then(()=>{
-        //להעבור לדף הראשי
-      })
-      ;
+      if(!this.body){
+      if(!confirm("Are you sure you want to send mail without text?") ){
+        return
+      }
+      }
+      console.log('here')
+      emailService.save(email)
+      this.$emit("filterBy","inbox")
     },
   },
   computed: {},

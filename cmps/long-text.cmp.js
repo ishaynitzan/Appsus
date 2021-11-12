@@ -8,12 +8,14 @@ export default {
     `,
     data(){
       return{
-        words : this.txt.split(/\s+/).length
+        words : this.txt ?this.txt.split(/\s+/).length:''
       }
     },
   computed: {
     showTxt() {
+      if(!this.txt) return '';
       return this.txt.split(/\s+/).slice(0, this.num).join(" ");
     },
   },
 };
+
