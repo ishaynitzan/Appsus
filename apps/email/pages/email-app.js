@@ -23,7 +23,7 @@ export default {
       <folder-list @filterBy="setFilter" class="main-container"/>
       <section class="email-body main-container flex column">
         <email-filter  @search="setSearchKey" :unreadMail="unread" @showUnread="setFilter" @sortEmail="setSort" />
-        <compose-email v-if="filterBy === 'new'"/>
+        <compose-email v-if="filterBy === 'new'" @filterBy="setFilter"/>
         <email-details v-else-if="filterBy === 'details'" @previousPage="setFilter(prevFilterBy)"  @deleteEmail="deleteEmail"/>
         <email-list v-else :emailsToShow="emailsToShow" @openDetails="setFilter('details')"/>
       </section>
@@ -32,7 +32,7 @@ export default {
   data() {
     return {
       emails: null,
-      filterBy: null,
+      filterBy: null, //change back to null
       prevFilterBy: null,
       searchKey: null,
       unread: null,
@@ -126,20 +126,17 @@ export default {
       } else {
         switch (this.filterBy) {
           case "sent":
-            console.log("switch sent");
             emailsToShow = this.emails.filter(
               (email) => email.from === "team2@email.com"
             );
             break;
           case "unread":
-            console.log("switch unread");
             emailsToShow = this.emails.filter(
               (email) => email.isRead === false
             );
             break;
           default:
-          case "all":
-            console.log("switch all");
+          case "inbox":
             emailsToShow = this.emails.filter(
               (email) => email.from !== "team2@email.com"
             );

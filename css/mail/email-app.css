@@ -13,13 +13,14 @@
     background-color: #eae2b7;
 }
 
-.fa{
+.btn{
     padding: 4px;
+    margin:0 4px;
     border-radius: 50%;
     transition: opacity .2s ,background-color .2s;
     color: #003049;
 }
-.fa:hover{
+.btn:hover{
 cursor: pointer;
 padding: 4px;
 opacity: .7;

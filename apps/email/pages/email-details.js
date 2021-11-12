@@ -8,7 +8,7 @@ export default {
         <header class="flex space-between">
           <div></div>
           <div>
-            <div @click.stop.prev="previousPage" class="fa fa fa-compress" title="Compress"></div>
+            <div @click.stop.prev="previousPage" class="btn fa fa-compress" title="Compress"></div>
           </div>
         </header>
         <div>From: <span>{{from}}</span></div>
@@ -18,7 +18,7 @@ export default {
         <hr>
         <nav class="flex">
           <div  class="fa fa-reply" title="Reply"></div>
-          <div @click="deleteEmail(email.id)" class="fa fa fa-trash-o" title="Delete"></div>
+          <div @click="deleteEmail(email.id)" class="btn fa fa-trash-o" title="Delete"></div>
         </nav>
     </section>
       `,
@@ -45,7 +45,7 @@ export default {
       this.$emit("previousPage");
     },
     deleteEmail(id) {
-      if (confirm("Do you sure?")) {
+      if (confirm("are you sure?")) {
         this.$emit("deleteEmail", id);
         this.previousPage();
       }

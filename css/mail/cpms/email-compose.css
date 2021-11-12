@@ -1,4 +1,6 @@
-@import url(../../helpers.css);
+.email-compose{
+height: 100%;
+}
 
 .email-compose header {
   background-color: #d62828;
@@ -7,12 +9,28 @@
   background-color: #d62828;
 }
 
-textarea {
-  margin: 1rem 0;
+
+.email-compose textarea {
+  display: flex;
+  flex: 1;
   resize: none;
   width: 100%;
 }
 
 .open-mail {
   background-color: #002f491f;
+}
+
+.send-btn{
+  margin:  .2em 0;
+  border-radius: 1rem;
+  background-color: #eae2b7;
+  border:2px solid #d62828;
+  background: repeating-linear-gradient(
+  45deg,
+  #fff0 0px,
+  #fff0 20px,
+  #d62828 20px,
+  #d62828 21px
+  );
 }
