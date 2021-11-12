@@ -2,9 +2,15 @@
 @import url(./mail/email-app.css);
 @import url(./notes/notes-app.css);
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
-:root {
+
+/* :root {
   font-size: 16px;
   --heading-height: 10em;
+} */
+
+@font-face {
+  font-family: Product;
+  src: url(../fonts/product-sans/Product\ Sans\ Regular.ttf); 
 }
 
 * {
@@ -13,6 +19,7 @@
   margin: 0;
   border-collapse: collapse;
   color: #003049;
+  font-family:'Product', sans;
 }
 
 .main-container {

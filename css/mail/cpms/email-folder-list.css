@@ -1,7 +1,8 @@
 @import url(../../helpers.css);
 
 .folder-list {
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0);
+  background-color: #eae2b7;
 }
 
 .email-folder-btn {
@@ -13,6 +14,7 @@
   width: 6em;
   border: 0;
   background-color: rgba(255, 255, 255, 0);
+  background-color: #eae2b7;
   border-radius: 0 1rem 1rem 0;
   border-top: 1px solid rgba(0, 0, 0, 0);
   border-right: 1px solid rgba(0, 0, 0, 0);

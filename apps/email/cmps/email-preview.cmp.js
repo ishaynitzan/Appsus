@@ -7,18 +7,24 @@ export default {
   },
   props: ["email"],
   template: `
-  <section class="mail-preview">  
+  <section class="mail-preview" @mouseover="hover=true" @mouseleave="hover=false">  
     <table v-if="!isPeak">
       <thead></thead>
       <tbody>
         <tr @click="changePeak" class="flex" :class="{'open-mail' : isRead}">
-          <th class="flex justify-center"><div @click.stop.prev="addStar(email.id)" :class="[isStared ? 'fa fa-star' : 'fa fa-star-o']" title="Stared"></div></th>
+          <th class="flex align-center"><div @click.stop.prev="sendStatus('changeStar')" :class="[isStared ? 'fa fa-star' : 'fa fa-star-o']" title="Stared"></div></th>
           <th class="flex align-center subject"><div>{{email.subject}}</div><th/>
-          <th class="flex grow-3 align-center">
+          <th class="flex grow-1 align-center preview-body">
             <long-text :txt="email.body" :num="7"/>
           </th> 
-          <th class="flex align-center"><div @click.stop.prev="changeOpenMail" :class="[isRead ? 'fa fa-envelope-open-o' : 'fa fa-envelope']" title="Un/Read"></div></th> 
-          <th class="flex align-center">{{formatted_date(email.sentAt)}}</th> 
+          <th class="flex align-center"><div @click.stop.prev="sendStatus('changeRead')" :class="[isRead ? 'fa fa-envelope-open-o' : 'fa fa-envelope']" title="Un/Read"></div></th> 
+          <th class="flex align-center">
+            <div v-if="!hover">{{formatted_date(email.sentAt)}}</div>
+            <div v-else>
+              <div @click.stop.prev="openDetails(email.id)" class="fa fa-expand" title="Expand"></div>
+              <div @click.stop.prev="deleteEmail(email.id)" class="fa fa fa-trash-o" title="Delete"></div>
+            </div>
+          </th> 
         </tr>    
       </tbody>
     </table> 
@@ -44,26 +50,36 @@ export default {
       `,
   data() {
     return {
+      hover: null,
       isPeak: null,
       isRead: this.email.isRead,
-      isStared: false ,
+      isStared: this.email.isStared,
     };
   },
-  created() {
-    eventBus.$on(`changeOpenMail-${this.email.id}`, this.changeStatus);
-  },
+  created() {},
   methods: {
     changePeak() {
       this.isPeak = !this.isPeak;
-      if(this.isPeak && !this.isRead){ 
-        this.changeOpenMail();
-      } 
+      if (!this.isRead) {
+        this.sendStatus("changeRead");
+      }
     },
-    changeOpenMail() {
-      eventBus.$emit("changeOpenMail", this.email.id);
-    },
-    changeStatus(val) {
-      this.isRead = val;
+    sendStatus(status) {
+      var changeRead = false;
+      var changeStar = false;
+      if (status === "changeRead") {
+        this.isRead = !this.isRead;
+        changeRead = true;
+      }
+      if (status === "changeStar") {
+        this.isStared = !this.isStared;
+        changeStar = true;
+      }
+      eventBus.$emit("sendStatus", {
+        id: this.email.id,
+        changeRead,
+        changeStar,
+      });
     },
     formatted_date(val) {
       var result = "";
@@ -81,9 +97,6 @@ export default {
     openDetails(id) {
       this.$emit("openDetails");
       this.$router.push("/email/details/" + `${id}`).catch(() => {});
-    },
-    addStar(id) {
-      this.isStared = !this.isStared;
     },
   },
   computed: {},

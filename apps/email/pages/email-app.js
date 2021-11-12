@@ -41,7 +41,7 @@ export default {
   },
   created() {
     this.loadEmail();
-    eventBus.$on("changeOpenMail", this.changeOpenMail);
+    eventBus.$on("sendStatus", this.changeStatus);
     eventBus.$on("deleteEmail", this.deleteEmail);
   },
   methods: {
@@ -51,11 +51,12 @@ export default {
         this.unread = emails.filter((email) => email.isRead === false).length;
       });
     },
-    changeOpenMail(id) {
-      emailService.getById(id).then((email) => {
-        email.isRead = !email.isRead;
+    changeStatus(status) {
+  
+      emailService.getById(status.id).then((email) => {
+        if(status.changeRead) email.isRead = !email.isRead;
+        if(status.changeStar) email.isStared = !email.isStared;
         emailService.save(email).then(() => {
-          eventBus.$emit(`changeOpenMail-${email.id}`, email.isRead);
           this.loadEmail();
         });
       });

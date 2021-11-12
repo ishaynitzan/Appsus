@@ -1,9 +1,5 @@
 @import url(../helpers.css);
 
-.folder-list {
-  font-size: 0.7rem;
-  border: 1px solid black;
-}
 
 .folder-btn {
   display: flex;

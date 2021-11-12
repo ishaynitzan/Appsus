@@ -16,7 +16,7 @@ export default {
         <div @click="sortEmail('old forward')" class="fa fa-calendar-minus-o" title="Oldest first"></div>
         <div @click="sortEmail('new forward')" class="fa fa-calendar-plus-o" title="Newest first"></div>
         </div>
-        <div @click="showUnread('unread')" ><div><span class="fa fa-envelope" title="Un/Read" ></span>:{{unreadMail}}</div></div>
+        <div @click="showUnread('unread')" ><div><span class="fa fa-envelope" title=" Show unread" ></span>:{{unreadMail}}</div></div>
 
       </section>
       </section>

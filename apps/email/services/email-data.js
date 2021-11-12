@@ -6,6 +6,7 @@ export const gEmail = [
     isRead: false,
     sentAt: 1636133342918,
     from: "momo@momo.com",
+    isStared : false,
     to: "coding@academy.com",
   },
   {
@@ -15,6 +16,7 @@ export const gEmail = [
     isRead: false,
     sentAt: 1636233342918,
     from: "momo@momo.com",
+    isStared : true,
     to: "coding@academy.com",
   },
   {
@@ -24,6 +26,7 @@ export const gEmail = [
     isRead: false,
     sentAt: 1636333342918,
     from: "momo@momo.com",
+    isStared : true,
     to: "coding@academy.com",
   },
   {
@@ -33,6 +36,7 @@ export const gEmail = [
     isRead: false,
     sentAt: 1636433342918,
     from: "momo@momo.com",
+    isStared : true,
     to: "coding@academy.com",
   },
   {
@@ -42,6 +46,7 @@ export const gEmail = [
     isRead: false,
     sentAt: 1636533342918,
     from: "momo@momo.com",
+    isStared : true,
     to: "coding@academy.com",
   },
   {
@@ -51,6 +56,7 @@ export const gEmail = [
     isRead: false,
     sentAt: 1636633342918,
     from: "momo@momo.com",
+    isStared : true,
     to: "coding@academy.com",
   },
   {
@@ -60,6 +66,7 @@ export const gEmail = [
     isRead: false,
     sentAt: 1636733342918,
     from: "momo@momo.com",
+    isStared : true,
     to: "coding@academy.com",
   },
   {
@@ -69,6 +76,7 @@ export const gEmail = [
     isRead: false,
     sentAt: 1636833342918,
     from: "momo@momo.com",
+    isStared : false,
     to: "coding@academy.com",
   },
   {
@@ -78,6 +86,7 @@ export const gEmail = [
     isRead: false,
     sentAt: 1636933342918,
     from: "momo@momo.com",
+    isStared : false,
     to: "coding@academy.com",
   },
   {
@@ -87,6 +96,7 @@ export const gEmail = [
     isRead: false,
     sentAt: 1636093342918,
     from: "momo@momo.com",
+    isStared : false,
     to: "coding@academy.com",
   },
   {
@@ -96,6 +106,7 @@ export const gEmail = [
     isRead: false,
     sentAt: 1636533342918,
     from: "momo@momo.com",
+    isStared : false,
     to: "coding@academy.com",
   },
   {
@@ -105,6 +116,7 @@ export const gEmail = [
     isRead: false,
     sentAt: 1636533342918,
     from: "momo@momo.com",
+    isStared : false,
     to: "coding@academy.com",
   },
   {
@@ -114,6 +126,7 @@ export const gEmail = [
     isRead: false,
     sentAt: 1636533342918,
     from: "momo@momo.com",
+    isStared : false,
     to: "coding@academy.com",
   },
   {
@@ -123,6 +136,7 @@ export const gEmail = [
     isRead: false,
     sentAt: 1636533342918,
     from: "momo@momo.com",
+    isStared : false,
     to: "coding@academy.com",
   },
   {
@@ -132,6 +146,7 @@ export const gEmail = [
     isRead: false,
     sentAt: 1636533342918,
     from: "momo@momo.com",
+    isStared : false,
     to: "coding@academy.com",
   },
   {
@@ -141,6 +156,7 @@ export const gEmail = [
     isRead: true,
     sentAt: 1636433342918,
     from: "bobo@bobo.com",
+    isStared : false,
     to: "coding@academy.com",
   },
   {
@@ -150,6 +166,7 @@ export const gEmail = [
     isRead: true,
     sentAt: 1636333342918,
     from: "nono@nono.com",
+    isStared : false,
     to: "coding@academy.com",
   },
   {
@@ -159,6 +176,7 @@ export const gEmail = [
     isRead: false,
     sentAt: 1636233342918,
     from: "mimi@mimi.com",
+    isStared : false,
     to: "coding@academy.com",
   },
   {
@@ -168,6 +186,7 @@ export const gEmail = [
     isRead: true,
     sentAt: 1551136930594,
     from: "team2@email.com",
+    isStared : false,
     to: "coding@academy.com",
   },
 ];
