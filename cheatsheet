@@ -8,3 +8,9 @@ function formatted_date(date)
    return result;
 }
 
+formatted_date(val) {
+      var result = "";
+      var date = "" + new Date(val);
+      date = date.split(" ");
+      result += date[1] + "/" + date[2];
+      return result;

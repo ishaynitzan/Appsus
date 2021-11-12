@@ -1,5 +1,5 @@
-import { notesService } from "../services/notes-service.js";
-import { eventBus } from "../../../js/services/event-bus.service.js";
+import { notesService } from "../../services/notes-service.js";
+import { eventBus } from "../../../../js/services/event-bus.service.js";
 
 export default {
 
