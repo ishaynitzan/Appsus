@@ -5,33 +5,6 @@ export const gNotes = [
     type: "textNote",
     isPinned: true,
     info: {
-<<<<<<< HEAD
-      txt: "Fullstack Me Baby!",
-    },
-  },
-  {
-    id: "n102",
-    type: "note-img",
-    isPinned: false,
-    info: {
-      url: "url",
-      txt: "my first selfie",
-      title: "my pic",
-    },
-    style: {
-      backgroundColor: "#00d",
-    },
-  },
-  {
-    id: "n103",
-    type: "note-txt",
-    isPinned: true,
-    info: {
-      txt: "I should buy stuff",
-    },
-  },
-];
-=======
         text: "some stuff I wrote",
         title: "a note",
         },
@@ -80,4 +53,3 @@ export const gNotes = [
 // },
 
 ];
->>>>>>> db016e3143b13d3936ede33d725c135eb618875d
