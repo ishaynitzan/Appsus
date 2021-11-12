@@ -4,19 +4,19 @@ import { eventBus } from "../../../../js/services/event-bus.service.js";
 export default {
     components: {
     },
-    props: ['data'],
+    props: ['note'],
     template: `
-        <div class="row">
+        <div class="note link-note">
             <label>
-                {{data.label}}
-                <input type="number" v-model.number="range.min" /> -
-                <input type="number" v-model.number="range.max" @blur="reportVal" />
+                {{note.info.title}}
+                <div>
+                     <a :href="note.info.url">go to {{note.info.title}}</a>
+                </div>
             </label>
         </div>
     `,
     data() {
         return {
-            range: { min: this.data.min, max: this.data.max }
         };
     },
     methods: {

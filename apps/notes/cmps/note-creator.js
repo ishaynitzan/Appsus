@@ -1,38 +1,187 @@
 import { notesService } from "../services/notes-service.js";
-const textBox = {
+const textNote = {
     props: ['data'],
     template: `
         <div>
-            <label>
-               kdhjbkdbkdb {{data.text}}
-            </label>
         </div>
     `,
     data() {
         return {
-            txt: 'thetrertger',
-            title: 'dddd',
+            text: 'hello',
+            title: 'hi',
         };
     },
     methods: {
 
         }
     };
+const imageNote = {
+    props: ['data'],
+    template: `
+        <div>
+        <input type="link" v-model="note.info.url" placeholder="Enter image URL" @input="url">
+        </div>
+    `,
+    data() {
+        return {
+            note:{
+                info:{
+                    url: null,
+            }
+        },
+    };
+},
+    methods: {
+        // send() {
+        // this.$emit('getImage',info.url)
+        // },
+        url(){
+            
+        }
+
+        }
+    };
+const todoNote = {
+    props: ['data'],
+    template: `
+        <div>
+
+        </div>
+    `,
+    data() {
+        return {
+            text: 'hello',
+            title: 'hi',
+        };
+    },
+    methods: {
+
+        }
+    };
+const linkNote = {
+    props: ['data'],
+    template: `
+        <div>
+        <input type="link" v-model="info.url" placeholder="Enter URL">
+        </div>
+    `,
+    data() {
+        return {
+            info: {
+                url: null,
+                text: 'hello',
+                title: 'hi',
+            },
+        };
+    },
+    methods: {
+
+        }
+    };
+const videoNote = {
+    props: ['data'],
+    template: `
+        <div>
+            <label>
+               {{data.text}}
+            </label>
+        </div>
+    `,
+    data() {
+        return {
+            text: 'hello',
+            title: 'hi',
+        };
+    },
+    methods: {
+
+        }
+    };
+const audioNote = {
+    props: ['data'],
+    template: `
+        <div>
+            <label>
+               {{data.text}}
+            </label>
+        </div>
+    `,
+    data() {
+        return {
+            text: 'hello',
+            title: 'hi',
+        };
+    },
+    methods: {
+
+        }
+    };
+const mapNote = {
+    props: ['data'],
+    template: `
+        <div>
+            <label>
+               {{data.text}}
+            </label>
+        </div>
+    `,
+    data() {
+        return {
+            text: 'hello',
+            title: 'hi',
+        };
+    },
+    methods: {
+
+        }
+    };
+const canvasNote = {
+    props: ['data'],
+    template: `
+        <div>
+            <label>
+               {{data.text}}
+            </label>
+        </div>
+    `,
+    data() {
+        return {
+            text: 'hello',
+            title: 'hi',
+        };
+    },
+    methods: {
+
+        }
+    };
+    
 
 export default {
     components: {
-        textBox,  
+        textNote,
+        imageNote,
+        todoNote,
+        linkNote,
+        videoNote,
+        audioNote,
+        mapNote,
+        canvasNote,  
     },
     props: [],
     template: `
       <section class="note-creator flex column align-center"> 
-        <div class="tab notes-tab">there's adynamic cmp below
-        </div>
-            <component :is="currNote.type" 
-                        :data="currNote.data">
-            </component>
+        <div class="tab notes-tab flex ">Create a Note</div>
+            <button class="tablinks" @click="notePicker('textNote')">Text</button>
+            <button class="tablinks" @click="notePicker('imageNote')">Image</button>
+            <button class="tablinks" @click="notePicker('todoNote')">To Do List</button>
+            <button class="tablinks" @click="notePicker('linkNote')">Link</button>
+            <button class="tablinks" @click="notePicker('videoNote')">Video</button>
+            <button class="tablinks" @click="notePicker('audioNote')">Audio</button>
+            <button class="tablinks" @click="notePicker('mapNote')">Map</button>
+            <button class="tablinks" @click="notePicker('canvasNote')">Drawing</button>
          <input type="text" v-model="currNote.data.title" placeholder="Title">
-         <textarea v-model="currNote.data.text" placeholder="Edit me"></textarea>
+         <component :is="currNote.type" :data="currNote" v-model="currNote"></component>
+         <textarea v-model="currNote.data.text" placeholder="Text"></textarea>
          <button @click="saveNote">save</button>
       </section>
       `,
@@ -40,29 +189,24 @@ export default {
       return {
         currNote: {
           data: {
-            text: "dvkjhdvjkhdv",
-            title: this.title,
+            url: null,
+            text: null,
+            title: null,
           },
-          type: "textBox",
+          type: null,
         },
       };
     },
-    //<component :is ="currNote.type" :data="currNote.data"></component>
-    // <button class="tablinks" @click="notePicked("text")">Text</button>
-    // <button class="tablinks" @click="notePicked("Image")">Image</button>
-    // <button class="tablinks" @click="notePicked("textBox")">TextBox</button>
+
     created() {  
     },
     methods: {
-        saveNote() {
+        saveNote(url) {
             const note =  {
                 id: null,
-                type: 'textNote',
+                type: this.currNote.type,
                 isPinned: false,
-                info: {
-                    txt: this.text,
-                    title: this.title,
-                    },
+                info: this.currNote.data,             
                 madeAt: Date.now(),
             };
             notesService.save(note).then(()=>{
@@ -71,8 +215,8 @@ export default {
           },
         notePicker(kind) {
           const notePicked = kind;
-          currNote.type = notePicked;
-        }
+          this.currNote.type = notePicked;
+        },
     },
     computed: {
     },

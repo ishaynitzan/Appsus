@@ -1,10 +1,10 @@
 // import audioNote from '../cmps/notes-types/audio-note.js';
 // import canvasNote from '../cmps/notes-types/canvas-note.js';
- import imageNote from '../cmps/notes-types/image-note.js';
-// import linkNote from '../cmps/notes-types/link-note.js';
+import imageNote from '../cmps/notes-types/image-note.js';
+import linkNote from '../cmps/notes-types/link-note.js';
 // import mapNote from '../cmps/notes-types/map-note.js';
 import textNote from '../cmps/notes-types/text-note.js';
-// import todoNote from '../cmps/notes-types/todo-note.js';
+import todoNote from '../cmps/notes-types/todo-note.js';
 // import videoNote from '../cmps/notes-types/video-note.js';
 
 export default {
@@ -13,10 +13,10 @@ export default {
         // audioNote,
         // canvasNote,
         imageNote,
-        // linkNote,
+        linkNote,
         // mapNote,
         textNote,
-        // todoNote,
+        todoNote,
         // videoNote,
     },
     props: ["notes"],

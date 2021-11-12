@@ -2,6 +2,8 @@
 @import url(./notes-search.css);
 @import url(./note-creator.css);
 @import url(./notes-list.css);
+@import url(./note-images.css);
+
 .note-adder  {
     background-clip: padding-box;
     border: solid transparent;

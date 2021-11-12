@@ -4,14 +4,11 @@ import { eventBus } from "../../../../js/services/event-bus.service.js";
 export default {
     components: {
     },
-    props: ['data'],
+    props: ['note'],
     template: `
     <section class="note todo-note">
         <h5>{{note.info.title}}</h5>
         <h6>{{note.info.txt}}</h6>
-                <select v-model="selectedOpt" @blur="reportVal">
-                    <option v-for="opt in data.opts">{{opt}}</option>
-                </select>
                 <nav><button @click="deleteNote(note.id)">X</button>
                 <button @click="editNote(note.id)">EDIT</button></nav>
         </section>
@@ -49,3 +46,7 @@ export default {
 
     },
 };
+
+//             <select v-model="selectedOpt">
+//<option v-for="opt in data.opts">{{opt}}</option>
+//</select>

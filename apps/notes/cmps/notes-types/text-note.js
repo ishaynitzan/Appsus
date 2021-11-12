@@ -9,7 +9,7 @@ export default {
     template: `
     <section class="note">
         <h5>{{note.info.title}}</h5>
-        <h6>{{note.info.txt}}</h6>
+        <h6>{{note.info.text}}</h6>
         <nav><button @click="deleteNote(note.id)">X</button>
         <button @click="editNote(note.id)">EDIT</button></nav>
     </section>
