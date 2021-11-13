@@ -4,7 +4,7 @@ export default {
   template: `
       <section class='folder-list'>  
         <ul>
-          <li><button :class="{active: 'new'=== active}" class="Compose-mail email-folder-btn" @click="showFolder('new')"><div class="fa fa-plus"> &nbsp</div><span>Compose</span></button></li>
+          <li><button :class="{active: 'new'=== active}" class="compose-folder-btn email-folder-btn" @click="showFolder('new')"><div class="fa fa-plus"> &nbsp</div><span>Compose</span></button></li>
           <li><button :class="{active: 'inbox'=== active}" class="email-folder-btn" @click="showFolder('inbox')">
            <div class="fa fa-inbox"> &nbsp</div>
            <span>Inbox</span></button></li>

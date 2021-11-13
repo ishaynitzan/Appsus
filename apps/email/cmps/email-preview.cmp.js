@@ -11,14 +11,13 @@ export default {
     <table v-if="!isPeak">
       <thead></thead>
       <tbody>
-        <tr @click="changePeak" class="flex" :class="{'open-mail' : isRead}">
+        <tr @click="changePeak" class="flex" :class="{'open-email' : isRead}">
           <th class="flex align-center"><div @click.stop.prev="sendStatus('changeStar')" :class="[isStared ? 'btn fa fa-star' : 'btn fa fa-star-o']" title="Stared"></div></th>
           <th class="flex align-center subject"><div>{{email.subject}}</div><th/>
           <th class="flex grow-1 align-center preview-body">
             <long-text :txt="email.body" :num="7"/>
           </th> 
-          <th class="flex align-center"><div @click.stop.prev="sendStatus('changeRead')" :class="[isRead ? 'btn fa fa-envelope-open-o' : 'btn fa fa-envelope']" title="Un/Read"></div></th> 
-          <th class="flex align-center">
+          <th class="flex align-center"><div @click.stop.prev="sendStatus('changeRead')" :class="[isRead ? 'btn fa fa-envelope-open-o' : 'btn fa fa-envelope']" title="Un/Read"></div>
             <div v-if="!hover"><div class="btn">{{formatted_date(email.sentAt)}}</div></div>
             <div v-else>
               <div @click.stop.prev="openDetails(email.id)" class="btn fa fa-expand" title="Expand"></div>
@@ -36,11 +35,14 @@ export default {
             <div @click="openDetails(email.id)" class="btn fa fa-expand" title="Expand"></div>
           </div>
         </header>
-        <div>From: <span>{{email.from}}</span></div>
-        <div>Topic: <span>{{email.subject}}</span></div>
-        <hr>
-        <p>{{email.body}}</p>
-        <hr>
+        <main>
+          <div>From: <span>{{email.from}}</span></div>
+          <hr>
+          <div>Topic: <span>{{email.subject}}</span></div>
+          <hr>
+          <p>{{email.body}}</p>
+          <hr>
+        </main>
         <nav class="flex">
           <div class="btn fa fa-reply" title="Reply"></div>
           <div @click="deleteEmail(email.id)" class="btn fa fa-trash-o" title="Delete"></div>

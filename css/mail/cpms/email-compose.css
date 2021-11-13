@@ -17,7 +17,7 @@ height: 100%;
   width: 100%;
 }
 
-.open-mail {
+.open-email {
   background-color: #002f491f;
 }
 
@@ -26,11 +26,4 @@ height: 100%;
   border-radius: 1rem;
   background-color: #eae2b7;
   border:2px solid #d62828;
-  background: repeating-linear-gradient(
-  45deg,
-  #fff0 0px,
-  #fff0 20px,
-  #d62828 20px,
-  #d62828 21px
-  );
 }
