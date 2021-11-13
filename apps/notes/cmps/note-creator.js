@@ -1,4 +1,5 @@
 import { notesService } from "../services/notes-service.js";
+
 const textNote = {
     props: ['data'],
     template: `
@@ -19,7 +20,7 @@ const imageNote = {
     props: ['data'],
     template: `
         <div>
-        <input type="link" v-model="note.info.url" placeholder="Enter image URL" @input="url">
+        <input type="link" v-model="note.info.url" placeholder="Enter image URL" @input="reportVal">
         </div>
     `,
     data() {
@@ -32,14 +33,12 @@ const imageNote = {
     };
 },
     methods: {
-        // send() {
-        // this.$emit('getImage',info.url)
-        // },
-        url(){
-            
-        }
+        reportVal() {
+            this.$emit('setInput', this.note);
+        },
 
-        }
+
+    }
     };
 const todoNote = {
     props: ['data'],
@@ -165,24 +164,27 @@ export default {
         videoNote,
         audioNote,
         mapNote,
-        canvasNote,  
+        canvasNote,
+      
     },
-    props: [],
+    props: ['onClose',],
     template: `
       <section class="note-creator flex column align-center"> 
-        <div class="tab notes-tab flex ">Create a Note</div>
-            <button class="tablinks" @click="notePicker('textNote')">Text</button>
-            <button class="tablinks" @click="notePicker('imageNote')">Image</button>
-            <button class="tablinks" @click="notePicker('todoNote')">To Do List</button>
-            <button class="tablinks" @click="notePicker('linkNote')">Link</button>
-            <button class="tablinks" @click="notePicker('videoNote')">Video</button>
-            <button class="tablinks" @click="notePicker('audioNote')">Audio</button>
-            <button class="tablinks" @click="notePicker('mapNote')">Map</button>
-            <button class="tablinks" @click="notePicker('canvasNote')">Drawing</button>
+      <div class="modal-bg">
+        <div class="modal">
+        <button @click="closeNote">x</button>
+        <h3>Create a Note</h3>
+        <div class="tab notes-tab flex-row">
+            <button class="tablinks fa fa-file-text-o" title="Text Note" @click="notePicker('textNote')"></button>
+            <button class="tablinks fa fa-picture-o" title="Image Note" @click="notePicker('imageNote')"></button>
+            <button class="tablinks fa fa-list" title="List Note" @click="notePicker('todoNote')"></button>
+            <button class="tablinks fa fa-link" title="Link Note" @click="notePicker('linkNote')"></button>
+            <button class="tablinks fa fa-youtube" title="Video Note" @click="notePicker('videoNote')"></button></div>
+            <div class="flex column">
          <input type="text" v-model="currNote.data.title" placeholder="Title">
-         <component :is="currNote.type" :data="currNote" v-model="currNote"></component>
-         <textarea v-model="currNote.data.text" placeholder="Text"></textarea>
-         <button @click="saveNote">save</button>
+         <component :is="currNote.type" :data="currNote" @setInput="setInput"></component>
+         <textarea v-model="currNote.data.text" placeholder="Text"></textarea></div>
+         <button @click="saveNote">save</button></div></div>
       </section>
       `,
     data() {
@@ -197,8 +199,7 @@ export default {
         },
       };
     },
-
-    created() {  
+    created()  {  
     },
     methods: {
         saveNote(url) {
@@ -212,10 +213,19 @@ export default {
             notesService.save(note).then(()=>{
                 this.$emit("query")
             });
+            this.$emit("onClose");
           },
+        closeNote() {
+            this.$emit("onClose");
+        },
+    
         notePicker(kind) {
           const notePicked = kind;
           this.currNote.type = notePicked;
+        },
+        setInput(note) {
+            if (note.info.url) this.currNote.data.url = note.info.url;
+            if (note.info.url) this.currNote.data.url = note.info.url;
         },
     },
     computed: {
@@ -225,3 +235,6 @@ export default {
     }
   };
   
+//   <button class="tablinks" @click="notePicker('audioNote')">Audio</button>
+//   <button class="tablinks" @click="notePicker('mapNote')">Map</button>
+//   <button class="tablinks" @click="notePicker('canvasNote')">Drawing</button></div>

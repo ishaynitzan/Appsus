@@ -49,3 +49,7 @@ width: 100%;
     box-shadow: 1px #003049;
 
 }
+.flex-row{
+    display: flex;
+    flex-direction: row;
+}

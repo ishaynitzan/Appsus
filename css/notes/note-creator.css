@@ -3,3 +3,25 @@
     margin: 1rem;
     box-shadow: 1px 1px 1px 1px #003049;
 }
+
+.modal {
+    position:relative;
+    width:50%;
+    padding: 24px;
+    min-height:100px;
+    margin: 0 auto;
+    margin-top: 10vh;
+    border:1px solid rgb(243, 190, 190);
+    background-color: rgb(230, 220, 220);
+}
+
+.modal-bg {
+    background-color:rgba(0, 0, 0, 0.3);
+    position: absolute;
+    z-index: 99;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+
+}

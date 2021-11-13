@@ -14,50 +14,56 @@ export default {
     noteSearch,
   },
   props: [],
-  template: `
-  <section class="notes-app flex">  
-    <note-filter @filterBy="setFilter" class="main-container"/>
-    <section class="notes-body main-container flex column">
-       <h1>Welcome to Notes</h1>
-        <note-search class="db"/>
-        <note-creator @query="query"/>
-         <notes-list :notes="notesForPreview"/>
-      </section>
-  </section>
-    `,
-    data() {
-      return {
-        notes: null,
-        filterBy: null
-      };
+  data() {
+    return {
+      notes: null,
+      filterBy: null,
+      isNoteCreatorOpen: false,
+    };
+  },
+  created() {
+    this.query();
+    eventBus.$on("query",this.query);
+  },
+  methods: {
+    query() {
+      notesService.query().then((notesFromStorage) => {
+        this.notes = notesFromStorage;
+      });
     },
-    created() {
-      this.query();
-      eventBus.$on("query",this.query);
+    setFilter(filterBy) {
+      this.filterBy = filterBy
     },
-    methods: {
-      query() {
-        notesService.query().then((notesFromStorage) => {
-          this.notes = notesFromStorage;
-        });
-      },
-      setFilter(filterBy) {
-        this.filterBy = filterBy
-    },
-      deleteNote(id) {
-        notesService.remove(id).then(() => {
+    deleteNote(id) {
+      notesService.remove(id).then(() => {
         this.query();
       });
-    }
     },
-    computed: {
-      notesForPreview(){
-        if (!this.filterBy) {
+    setIsNoteCreatorVis(){
+      this.isNoteCreatorOpen = !this.isNoteCreatorOpen;
+    }
+  },
+  computed: {
+    notesForPreview(){
+      if (!this.filterBy) {
         return this.notes;}
       }
     },
     destroyed() {},
     watch: {},
+    template: `
+    <section class="notes-app flex">  
+      <note-filter @filterBy="setFilter" class="main-container"/>
+      <section class="notes-body main-container flex column">
+         <h1>Welcome to Notes</h1>
+          <note-search class="db"/>
+          <button @click="setIsNoteCreatorVis" class="createNote">Editor</button>
+          <note-creator v-if="isNoteCreatorOpen" @onClose="setIsNoteCreatorVis" @query="query"/>
+           <notes-list :notes="notesForPreview"/>
+        </section>
+    </section>
+      `,
   };
   
-
+  
+  
