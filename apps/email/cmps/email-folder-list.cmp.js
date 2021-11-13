@@ -27,6 +27,7 @@ export default {
     showFolder(filter){
       this.active = filter;
       this.$emit("filterBy", filter)
+      this.$router.push("/email").catch(() => {});
     },
   },
   computed: {},

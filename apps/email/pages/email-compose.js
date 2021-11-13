@@ -27,10 +27,18 @@ export default {
     };
   },
   created() {
+    const id = this.$route.params.emailId;
+    if(id){
+      const email = emailService.getById(id).then((email)=>{
+        this.to = email.from;
+        this.subject = email.subject;
+        this.body = email.body;
+      });
+    }
   },
   methods: {
     sendEmail() {
-      const email =  {
+      const email = {
         id: null,
         subject: this.subject,
         body: this.body,
@@ -39,17 +47,18 @@ export default {
         from: "team2@email.com",
         to: this.to,
       };
-      if(!this.body){
-      if(!confirm("Are you sure you want to send mail without text?") ){
-        return
+      if (!this.body) {
+        if (!confirm("Send the mail without text?")) {
+          return;
+        }
       }
-      }
-      emailService.save(email).then(()=>{
-        this.$emit("filterBy","inbox")
-      })
+      emailService.save(email).then(() => {
+        this.$emit("filterBy", "inbox");
+      });
     },
   },
-  computed: {},
+  computed: {
+  },
   destroyed() {},
   watch: {},
 };
