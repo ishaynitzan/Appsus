@@ -22,6 +22,7 @@
 }
 
 body {
+  height: 100vh;
   background-image: url(../imgs/backGroung-home.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -123,5 +124,44 @@ body {
 
 /* MEDIA */
 
+@media (max-width: 700px) {
+  .email-folder-btn {
+    width: fit-content;
+    min-width: 2.5rem;
+  }
+  .subject-container {
+    width: calc(250px + 100vw - 1024px) !important;
+    overflow: hidden;
+    white-space: nowrap;
+    /* text-overflow: ellipsis;  */
+    /* display: block;  */
+  }
+}
 @media (max-width: 360px) {
+  
+  .email-app {
+    flex-direction: column;
+  }
+  .folder-list ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .email-folder-btn {
+    display: flex;
+    flex-direction: row;
+    background-color: #eae2b7;
+    border-radius: 1rem;
+  }
+  .email-folder-btn span {
+    display: none;
+  }
+
+  .compose-folder-btn {
+    border: 0;
+    flex-grow: 0;
+  }
+  .email-folder-btn::before {
+    content: "\00a0\00a0";
+  }
 }

@@ -40,6 +40,9 @@
   border-radius: 1rem;
   border: 1px solid #d62828;
 }
+.compose-folder-btn .fa {
+  display: flex;
+}
 
 .compose-folder-btn span {
   font-family: Product-bold;
@@ -53,7 +56,6 @@
   color: #fcbf59;
 }
 
-.email-details{
+.email-details {
   background-color: #fff;
-
 }

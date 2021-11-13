@@ -13,9 +13,9 @@ export default {
       <tbody>
         <tr @click="changePeak" class="flex" :class="{'open-email' : isRead}">
           <th class="flex align-center"><div @click.stop.prev="sendStatus('changeStar')" :class="[isStared ? 'btn fa fa-star' : 'btn fa fa-star-o']" title="Stared"></div></th>
-          <th class="flex align-center subject"><div>{{formattedEmail(email.from)}}</div><th/>
-          <th class="flex grow-1 align-center preview-body">
-            <long-text :txt="email.subject" :num="7"/>
+          <th class="flex align-center from-container"><div class="from">{{formattedEmail(email.from)}}</div><th/>
+          <th class="flex grow-1 align-center subject-container">
+            <long-text :txt="email.subject" :num="10" class="subject"/>
           </th> 
           <th class="flex align-center"><div @click.stop.prev="sendStatus('changeRead')" :class="[isRead ? 'btn fa fa-envelope-open-o' : 'btn fa fa-envelope']" title="Un/Read"></div>
             <div v-if="!hover"><div class="btn">{{formattedDate(email.sentAt)}}</div></div>

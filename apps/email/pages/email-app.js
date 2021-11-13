@@ -32,7 +32,7 @@ export default {
   data() {
     return {
       emails: null,
-      filterBy: null, //change back to null
+      filterBy: null, 
       prevFilterBy: null,
       searchKey: null,
       unread: null,

@@ -1,5 +1,5 @@
 import { emailService } from "../services/email.service.js";
-
+import { utilService } from "../../../js/services/util-service.js";
 export default {
   components: {},
   props: [],
@@ -24,6 +24,8 @@ export default {
       to: null,
       subject: null,
       body: null,
+      draftInterval: null,
+      draftId : utilService.makeId()
     };
   },
   created() {
@@ -34,7 +36,8 @@ export default {
         this.subject = email.subject;
         this.body = email.body;
       });
-    }
+    };
+    this.draftInterval= setInterval(this.saveDraft,5000);
   },
   methods: {
     sendEmail() {
@@ -56,9 +59,14 @@ export default {
         this.$emit("filterBy", "inbox");
       });
     },
+    saveDraft(draft){
+      console.log(draft);
+    }
   },
   computed: {
   },
-  destroyed() {},
+  destroyed() {
+    clearInterval(this.draftInterval);
+  },
   watch: {},
 };
