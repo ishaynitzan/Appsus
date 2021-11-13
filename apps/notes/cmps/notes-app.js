@@ -19,6 +19,8 @@ export default {
       notes: null,
       filterBy: null,
       isNoteCreatorOpen: false,
+      sortNotes: "new forward",
+      noteToEdit: null
     };
   },
   created() {
@@ -41,45 +43,62 @@ export default {
         this.query();
       });
     },
+    openEdit(id) {
+    notesService.getById(id).then((note) => {
+        this.noteToEdit = note;
+        console.log(this.noteToEdit);
+        this.setIsNoteCreatorVis();
+      });
+    },
     setIsNoteCreatorVis(){
       this.isNoteCreatorOpen = !this.isNoteCreatorOpen;
+    },
+    setSort(val) {
+      this.sortNotes = val;
+    },
+    sortBy(notes) {
+      switch (this.sortNotes) {
+        case "old forward":
+          return notes.sort((a, b) => {
+            if (a.madeAt < b.madeAt) return -1;
+            if (a.madeAt > b.madeAt) return 1;
+            return 0;
+          });
+        case "new forward":
+        default:
+          return notes.sort((a, b) => {
+            if (a.madeAt > b.madeAt) return -1;
+            if (a.madeAt < b.madeAt) return 1;
+            return 0;
+          });
+      }
     },
   },
   computed: {
     notesForPreview(){
-      console.log('in preview')
-      if (!this.filterBy) {
-        return this.notes;
-      } else {
+      if(!this.notes) return;
+      console.log(this.filterBy, 'in preview')
         var notesForList = null;
         switch (this.filterBy) {
           case "textNote":
-            notesForList = this.notes.filter(note => this.notes.type === "textNote");
+            notesForList = this.notes.filter(note => note.type === "textNote");
             break;
           case "linkNote":
-            notesForList = this.notes.filter((note) => {
-              if (email.from === "team2@email.com" && !email.atTrash)
-                return true;
-            });
+            notesForList = this.notes.filter(note => note.type === "linkNote");
             break;
           case "imageNote":
-            notesForList = this.notes.filter((note) => {
-              if (email.isRead === false && !email.atTrash) return true;
-            });
+            notesForList = this.notes.filter(note => note.type === "imageNote");
             break;
           case "todoNote":
-            notesForList = this.notes.filter((note) => email.atTrash);
+            notesForList = this.notes.filter(note => note.type === "todoNote");
             break;
           default:
           case "all":
-            notesForList = this.notes.filter((note) => {
-              if (email.from !== "team2@email.com" && !email.atTrash)
-                return true;
-            });
+            notesForList = this.notes;
             break;
         }
-      }
-      return notesForList;
+      console.log(notesForList)
+      return this.sortBy(notesForList);
       }
     },
     destroyed() {},
@@ -91,8 +110,8 @@ export default {
          <h1>Welcome to Notes</h1>
           <note-search class="note-search"/>
           <button @click="setIsNoteCreatorVis" class="createNote note-editor">Editor</button>
-          <note-creator v-if="isNoteCreatorOpen" @sendQuery="query" @onClose="setIsNoteCreatorVis" />
-           <notes-list :notes="notesForPreview"/>
+          <note-creator v-if="isNoteCreatorOpen" :noteToEdit="noteToEdit" @sendQuery="query" @onClose="setIsNoteCreatorVis" />
+           <notes-list :notes="notesForPreview" @editNote="openEdit"/>
         </section>
     </section>
       `,

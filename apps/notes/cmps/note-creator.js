@@ -172,13 +172,13 @@ export default {
         canvasNote,
       
     },
-    props: ['onClose',],
+    props: ['onClose', 'noteToEdit'],
     template: `
       <section class="note-creator flex column align-center"> 
       <div class="modal-bg">
         <div class="modal">
         <button @click="closeNote" class="close-modal tablinks fa fa-times"></button>
-        <h3>Create a Note</h3>
+        <h3 :"noteHeader">{{noteHeader}}</h3>
         <div class="tab notes-tab flex-row">
             <button class="tablinks fa fa-file-text-o" title="Text Note" @click="notePicker('textNote')"></button>
             <button class="tablinks fa fa-picture-o" title="Image Note" @click="notePicker('imageNote')"></button>
@@ -202,9 +202,17 @@ export default {
           },
           type: null,
         },
+        noteHeader: 'New Note:'
       };
     },
-    created()  {  
+    created()  {
+            console.log(this.noteToEdit);
+            if(this.noteToEdit && this.noteToEdit.id) {
+            this.noteHeader = 'Edit your note:';
+            this.currNote.id = this.noteToEdit.id;
+            this.currNote.data.text = this.noteToEdit.info.text;
+            this.currNote.data.title = this.noteToEdit.info.title;
+            } 
     },
     methods: {
         saveNote() {
@@ -219,8 +227,14 @@ export default {
             notesService.save(note).then(()=>{
                 this.$emit("sendQuery");
                 this.$emit("onClose");
+                this.currNote = null;
+                this.noteHeader = 'New Note:';
             });
           },
+        setEditNote(){
+            this.currNote = this.noteToEdit;
+            console.log(this.noteToEdit);
+        },
         closeNote() {
             this.$emit("onClose");
         },
@@ -235,6 +249,8 @@ export default {
         },
     },
     computed: {
+    
+
     },
     destroyed() {},
     watch :{

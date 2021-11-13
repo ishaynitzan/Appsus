@@ -8,6 +8,7 @@ export const gNotes = [
         text: "some stuff I wrote",
         title: "a note",
         },
+    madeAt: 1636817000000,
     style: {
         backgroundColor: "#f77f00",
     },
@@ -20,6 +21,7 @@ export const gNotes = [
         url: 'https://images.ctfassets.net/hrltx12pl8hq/2TRIFRwcjrTuNprkTQHVxs/088159eb8e811aaac789c24701d7fdb1/LP_image.jpg?fit=fill&w=632&h=354&fm=webp',
         title: "my pic"
        },
+    madeAt: 1636817000782,
     style: {
         backgroundColor: "#fcbf49"
     },
@@ -32,7 +34,8 @@ export const gNotes = [
        url: 'https://images.ctfassets.net/hrltx12pl8hq/2TRIFRwcjrTuNprkTQHVxs/088159eb8e811aaac789c24701d7fdb1/LP_image.jpg?fit=fill&w=632&h=354&fm=webp',
        title: "my pic"
       },
-   style: {
+    madeAt: 1636817090782,
+    style: {
        backgroundColor: "#fcbf49"
    },
 },
@@ -44,6 +47,7 @@ export const gNotes = [
          text: "I should buy stuff",
          title: "todo shoping list",
          },
+    madeAt: 1636817091782,
      style: {
          backgroundColor: "#fcbf49",
      },
@@ -58,6 +62,7 @@ export const gNotes = [
          Text: "a link to google",
          title: "Google",
      },
+     madeAt: 1636817092782,
      style: {
          backgroundColor: "#eae2b7"
      },
@@ -70,6 +75,7 @@ export const gNotes = [
         text: "Doing stuff",
         title: "todo",
         },
+    madeAt: 1636817093782,
     style: {
         backgroundColor: "#fcbf49",
     },
@@ -83,6 +89,7 @@ export const gNotes = [
        url: 'https://images.ctfassets.net/hrltx12pl8hq/2TRIFRwcjrTuNprkTQHVxs/088159eb8e811aaac789c24701d7fdb1/LP_image.jpg?fit=fill&w=632&h=354&fm=webp',
        title: "my pic"
       },
+    madeAt: 1636817094782,
    style: {
        backgroundColor: "#fcbf49"
    },
@@ -95,6 +102,7 @@ export const gNotes = [
         text: "so I'm writing things here, but I also should write code",
         title: "A Good Note",
         },
+    madeAt: 1636817095782,
     style: {
         backgroundColor: "#f77f00",
     },
@@ -107,6 +115,7 @@ export const gNotes = [
         url: "https://www.facebook.com/",
         title: "Facebook",
     },
+    madeAt: 1636817096782,
     style: {
         backgroundColor: "#eae2b7"
     },

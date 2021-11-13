@@ -21,15 +21,14 @@ export default {
     },
     props: ["notes"],
     template: `
-    <section class="notes-list">
-        <ul>
-           <li v-for="note in notes" :key="note.id" class="note-preview-container flex">
-             <div class="justify-center align-center flex column"
-                <div class="grid-container">
-                    <component :is="note.type" :note="note" @click="seeNote(note.id)" class="grid-note"></component>
-                 </div></div>
-           </li>
-        </ul>
+    <section class="notes-list grid-container">
+           <section v-for="note in notes" :key="note.id" class="note-preview-container">
+             
+                <div>
+                    <component :is="note.type" :note="note" @click="seeNote(note.id)" @editNote="getEditNote" class="grid-note"></component>
+                 </div>
+            
+           </section>
     </section>
     `,
     data() {
@@ -41,6 +40,9 @@ export default {
 
     },
     methods: {
+        getEditNote(id) {
+            this.$emit("editNote", id); 
+        }
         
 
     },

@@ -31,7 +31,7 @@ export default {
         }
     },
         editNote(id) {
-
+            this.$emit("editNote", id);
         },
 
 
