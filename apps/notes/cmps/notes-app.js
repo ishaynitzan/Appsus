@@ -20,7 +20,8 @@ export default {
       filterBy: null,
       isNoteCreatorOpen: false,
       sortNotes: "new forward",
-      noteToEdit: null
+      noteToEdit: null,
+      searchKey: null,
     };
   },
   created() {
@@ -50,6 +51,20 @@ export default {
         this.setIsNoteCreatorVis();
       });
     },
+    setSearchKey(key) {
+      this.searchKey = key;
+    },
+    searchWords(words) {
+      return this.notes.filter((note) => {
+        var key = words.toLowerCase();
+        var found = false;
+        for (const value in note) {
+          const val = "" + note[value];
+          if (val.toLowerCase().includes(key)|| val[1].toLowerCase().includes(key)|| val[2].toLowerCase().includes(key)) found = true;
+        }
+        return found;
+      });
+    },
     setIsNoteCreatorVis(){
       this.isNoteCreatorOpen = !this.isNoteCreatorOpen;
     },
@@ -77,8 +92,10 @@ export default {
   computed: {
     notesForPreview(){
       if(!this.notes) return;
-      console.log(this.filterBy, 'in preview')
         var notesForList = null;
+      if (this.searchKey) {
+          notesForList = this.searchWords(this.searchKey);
+          return this.sortBy(notesForList);}
         switch (this.filterBy) {
           case "textNote":
             notesForList = this.notes.filter(note => note.type === "textNote");
@@ -108,7 +125,7 @@ export default {
       <note-filter @filterBy="setFilter" class="main-container"/>
       <section class="notes-body main-container flex column">
          <h1>Welcome to Notes</h1>
-          <note-search class="note-search"/>
+          <note-search @search="setSearchKey" :searchKey="searchKey" class="note-search"/>
           <button @click="setIsNoteCreatorVis" class="createNote note-editor">Editor</button>
           <note-creator v-if="isNoteCreatorOpen" :noteToEdit="noteToEdit" @sendQuery="query" @onClose="setIsNoteCreatorVis" />
            <notes-list :notes="notesForPreview" @editNote="openEdit"/>

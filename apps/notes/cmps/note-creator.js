@@ -178,7 +178,7 @@ export default {
       <div class="modal-bg">
         <div class="modal">
         <button @click="closeNote" class="close-modal tablinks fa fa-times"></button>
-        <h3 :"noteHeader">{{noteHeader}}</h3>
+        <h3>Create a Note</h3>
         <div class="tab notes-tab flex-row">
             <button class="tablinks fa fa-file-text-o" title="Text Note" @click="notePicker('textNote')"></button>
             <button class="tablinks fa fa-picture-o" title="Image Note" @click="notePicker('imageNote')"></button>
@@ -202,7 +202,6 @@ export default {
           },
           type: null,
         },
-        noteHeader: 'New Note:'
       };
     },
     created()  {
