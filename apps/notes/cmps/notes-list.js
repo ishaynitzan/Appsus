@@ -24,9 +24,10 @@ export default {
     <section class="notes-list">
         <ul>
            <li v-for="note in notes" :key="note.id" class="note-preview-container flex">
-                <div class="justify-center align-center flex column">
-                    <component :is="note.type" :note="note" @click="seeNote(note.id)"></component>
-                 </div>
+             <div class="justify-center align-center flex column"
+                <div class="grid-container">
+                    <component :is="note.type" :note="note" @click="seeNote(note.id)" class="grid-note"></component>
+                 </div></div>
            </li>
         </ul>
     </section>
@@ -56,3 +57,4 @@ export default {
 }
 
 //                   <note-preview :note="note" @click="enterNote(note.id)"/>
+//            <div class="justify-center align-center flex column">
