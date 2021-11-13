@@ -36,6 +36,12 @@ export default {
     setFilter(filterBy) {
       this.filterBy = filterBy
     },
+    filteredNotes(){
+      const filteredNotes = null;
+      filteredNotes = this.notes.filter(note => note.type === this.filterBy);
+      this.notes = filteredNotes;
+      console.log(filteredNotes, 'filterd?');
+    },
     deleteNote(id) {
       notesService.remove(id).then(() => {
         this.query();
