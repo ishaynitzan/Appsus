@@ -3,11 +3,6 @@
 @import url(./notes/notes-app.css);
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
 
-/* :root {
-  font-size: 16px;
-  --heading-height: 10em;
-} */
-
 @font-face {
   font-family: Product;
   src: url(../fonts/product-sans/Product\ Sans\ Regular.ttf);
@@ -68,7 +63,7 @@ body {
   width: 100%;
   width: 100%;
   height: 5rem;
-  bottom: -2.8rem;
+  bottom: 0.7rem;
   transform: skewY(-2deg);
   background: linear-gradient(#d62828, #b62020),
     linear-gradient(#4e4376, #2b5876);
@@ -96,7 +91,6 @@ body {
 }
 
 /* HOME */
-
 .home {
   text-align: center;
   /* background-image: url(../imgs/backGroung-home.png);
@@ -109,7 +103,11 @@ body {
 }
 
 /* FOOTER */
-
 .main-footer {
   height: 5vh;
+}
+
+/* MEDIA */
+
+@media (max-width: 360px) {
 }

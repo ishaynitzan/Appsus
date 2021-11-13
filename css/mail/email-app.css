@@ -3,27 +3,26 @@
 @import url(./cpms/email-folder-list.css);
 @import url(./cpms/email-compose.css);
 
-
-.email-app>*{
-    font-size: 18px;
+.email-app > * {
+  font-size: 18px;
 }
 
-.email-body{
-    width: 100%;
-    background-color: #eae2b7;
+.email-body {
+  width: 100%;
+  background-color: #eae2b7;
 }
 
-.btn{
-    padding: 4px;
-    margin:0 4px;
-    border-radius: 50%;
-    transition: opacity .2s ,background-color .2s;
-    color: #003049;
+.btn {
+  padding: 4px;
+  margin: 0 4px;
+  border-radius: 50%;
+  transition: opacity 0.2s, background-color 0.2s;
+  color: #003049;
 }
-.btn:hover{
-cursor: pointer;
-padding: 4px;
-opacity: .7;
-border-radius: 50%;
-background-color: #002f4928;
+.btn:hover {
+  cursor: pointer;
+  padding: 4px;
+  opacity: 0.7;
+  border-radius: 50%;
+  background-color: #002f4928;
 }

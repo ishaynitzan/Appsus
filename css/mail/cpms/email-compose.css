@@ -1,5 +1,5 @@
-.email-compose{
-height: 100%;
+.email-compose {
+  height: 100%;
 }
 
 .email-compose header {
@@ -8,7 +8,6 @@ height: 100%;
 .email-compose nav {
   background-color: #d62828;
 }
-
 
 .email-compose textarea {
   display: flex;
@@ -21,9 +20,9 @@ height: 100%;
   background-color: #002f491f;
 }
 
-.send-btn{
-  margin:  .2em 0;
+.send-btn {
+  margin: 0.2em 0;
   border-radius: 1rem;
   background-color: #eae2b7;
-  border:2px solid #d62828;
+  border: 2px solid #d62828;
 }

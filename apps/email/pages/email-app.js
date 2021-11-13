@@ -20,7 +20,7 @@ export default {
   props: [],
   template: `
     <section class="email-app flex">
-      <folder-list @filterBy="setFilter" class="main-container"/>
+      <folder-list @filterBy="setFilter"/>
       <section class="email-body main-container flex column">
         <email-filter  @search="setSearchKey" :searchKey="searchKey" :unreadMail="unread" @showUnread="setFilter" @sortEmail="setSort" />
         <compose-email v-if="filterBy === 'new'" @filterBy="setFilter"/>

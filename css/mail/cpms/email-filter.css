@@ -1,13 +1,18 @@
-.email-filter, .email-sort{
-    height: 2.5rem;
-border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+.email-filter,
+.email-sort {
+  height: 2.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.email-sort >*{
-margin: 0 1rem;
+.email-filter {
+  margin-top: 2vh;
 }
 
-.input-search{
-    padding: .3rem;
-    width: 70%;
+.email-sort > * {
+  margin: 0 1rem;
+}
+
+.input-search {
+  padding: 0.3rem;
+  width: 70%;
 }
