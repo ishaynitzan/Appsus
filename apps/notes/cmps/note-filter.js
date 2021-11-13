@@ -12,7 +12,7 @@ export default {
           <li><button :class="{active: 'done'=== active}" class="folder-btn" @click="showFolder('done')">Done</button></li>
           <li><button :class="{active: 'images'=== active}" class="folder-btn" @click="showFolder('images')">Images</button></li>
           <li><button :class="{active: 'all'=== active}" class="folder-btn" @click="showFolder('all')">All</button></li>
-          <li><button :class="{active: 'garbage'=== active}" class="folder-btn" @click="showFolder('garbage')">Garbage</button></li>
+          <li><button :class="{active: 'trash'=== active}" class="folder-btn" @click="showFolder('trash')">Garbage</button></li>
         </ul>
       </section>
       `,

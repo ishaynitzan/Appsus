@@ -2,7 +2,7 @@
 export default {
     components: {  
     },
-    props: ['unreadMail'],
+    props: ['unreadMail','searchKey'],
     template: `
     <section>
       <section class="email-filter flex space-evenly align-center justify-center"> 
@@ -34,10 +34,10 @@ export default {
       },
       showUnread(filter){
         this.active = filter;
-        this.$emit("showUnread", filter)
+        this.$emit("showUnread", filter);
       },
       sortEmail(val){
-        this.$emit("sortEmail", val)
+        this.$emit("sortEmail", val);
 
       }
     },
@@ -45,6 +45,10 @@ export default {
     },
     destroyed() {},
     watch :{
+      searchKey : function(newVal,oldVal){
+        console.log(newVal)
+        if (!newVal) this.search='';
+      }
     }
   };
   

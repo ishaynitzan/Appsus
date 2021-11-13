@@ -44,9 +44,9 @@ export default {
         return
       }
       }
-      console.log('here')
-      emailService.save(email)
-      this.$emit("filterBy","inbox")
+      emailService.save(email).then(()=>{
+        this.$emit("filterBy","inbox")
+      })
     },
   },
   computed: {},

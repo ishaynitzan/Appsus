@@ -13,15 +13,15 @@ export default {
       <tbody>
         <tr @click="changePeak" class="flex" :class="{'open-email' : isRead}">
           <th class="flex align-center"><div @click.stop.prev="sendStatus('changeStar')" :class="[isStared ? 'btn fa fa-star' : 'btn fa fa-star-o']" title="Stared"></div></th>
-          <th class="flex align-center subject"><div>{{email.subject}}</div><th/>
+          <th class="flex align-center subject"><div>{{formattedEmail(email.from)}}</div><th/>
           <th class="flex grow-1 align-center preview-body">
-            <long-text :txt="email.body" :num="7"/>
+            <long-text :txt="email.subject" :num="7"/>
           </th> 
           <th class="flex align-center"><div @click.stop.prev="sendStatus('changeRead')" :class="[isRead ? 'btn fa fa-envelope-open-o' : 'btn fa fa-envelope']" title="Un/Read"></div>
-            <div v-if="!hover"><div class="btn">{{formatted_date(email.sentAt)}}</div></div>
+            <div v-if="!hover"><div class="btn">{{formattedDate(email.sentAt)}}</div></div>
             <div v-else>
               <div @click.stop.prev="openDetails(email.id)" class="btn fa fa-expand" title="Expand"></div>
-              <div @click.stop.prev="deleteEmail(email.id)" class="btn fa fa-trash-o" title="Delete"></div>
+              <div @click.stop.prev="sendToTrash(email.id)" class="btn fa fa-trash-o" title="Delete"></div>
             </div>
           </th> 
         </tr>    
@@ -45,7 +45,7 @@ export default {
         </main>
         <nav class="flex">
           <div class="btn fa fa-reply" title="Reply"></div>
-          <div @click="deleteEmail(email.id)" class="btn fa fa-trash-o" title="Delete"></div>
+          <div @click="sendToTrash(email.id)" class="btn fa fa-trash-o" title="Delete"></div>
         </nav>
     </section>
   </section>
@@ -83,17 +83,22 @@ export default {
         changeStar,
       });
     },
-    formatted_date(val) {
+    formattedDate(val) {
       var result = "";
       var date = "" + new Date(val);
       date = date.split(" ");
       result += date[1] + "/" + date[2];
       return result;
     },
-    deleteEmail(id) {
+    formattedEmail(val) {
+      var from = this.email.from;
+      from.indexOf('@')
+      return from.slice(0,from.indexOf('@'));
+    },
+    sendToTrash(id) {
       if (confirm("are you sure?")) {
         this.$emit("close");
-        eventBus.$emit("deleteEmail", id);
+        eventBus.$emit("sendToTrash", {id, atTrash: this.email.atTrash});
       }
     },
     openDetails(id) {

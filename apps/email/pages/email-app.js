@@ -22,7 +22,7 @@ export default {
     <section class="email-app flex">
       <folder-list @filterBy="setFilter" class="main-container"/>
       <section class="email-body main-container flex column">
-        <email-filter  @search="setSearchKey" :unreadMail="unread" @showUnread="setFilter" @sortEmail="setSort" />
+        <email-filter  @search="setSearchKey" :searchKey="searchKey" :unreadMail="unread" @showUnread="setFilter" @sortEmail="setSort" />
         <compose-email v-if="filterBy === 'new'" @filterBy="setFilter"/>
         <email-details v-else-if="filterBy === 'details'" @previousPage="setFilter(prevFilterBy)"  @deleteEmail="deleteEmail"/>
         <email-list v-else :emailsToShow="emailsToShow" @openDetails="setFilter('details')"/>
@@ -42,7 +42,7 @@ export default {
   created() {
     this.loadEmail();
     eventBus.$on("sendStatus", this.changeStatus);
-    eventBus.$on("deleteEmail", this.deleteEmail);
+    eventBus.$on("sendToTrash", this.sendToTrash);
   },
   methods: {
     loadEmail() {
@@ -52,10 +52,9 @@ export default {
       });
     },
     changeStatus(status) {
-  
       emailService.getById(status.id).then((email) => {
-        if(status.changeRead) email.isRead = !email.isRead;
-        if(status.changeStar) email.isStared = !email.isStared;
+        if (status.changeRead) email.isRead = !email.isRead;
+        if (status.changeStar) email.isStared = !email.isStared;
         emailService.save(email).then(() => {
           this.loadEmail();
         });
@@ -63,13 +62,29 @@ export default {
     },
     setFilter(filter) {
       this.filterBy = filter;
+      this.searchKey = "";
+      this.loadEmail();
     },
     setSearchKey(key) {
       this.searchKey = key;
     },
+    sendToTrash(status) {
+      if (status.atTrash) {
+        this.deleteEmail(status.id);
+        return;
+      }
+      emailService.getById(status.id).then((email) => {
+        email.atTrash = true;
+        emailService.save(email).then(() => {
+          this.loadEmail();
+        });
+      });
+    },
     deleteEmail(id) {
+      console.log(id);
       emailService.remove(id).then(() => {
         this.loadEmail();
+        console.log("delete");
       });
     },
     searchWords(words) {
@@ -119,27 +134,36 @@ export default {
   computed: {
     emailsToShow() {
       if (!this.emails) return;
-
       var emailsToShow = null;
       if (this.searchKey) {
         emailsToShow = this.searchWords(this.searchKey);
       } else {
         switch (this.filterBy) {
+          case "starred":
+            emailsToShow = this.emails.filter((email) => {
+              if (email.isStared && !email.atTrash) return true;
+            });
+            break;
           case "sent":
-            emailsToShow = this.emails.filter(
-              (email) => email.from === "team2@email.com"
-            );
+            emailsToShow = this.emails.filter((email) => {
+              if (email.from === "team2@email.com" && !email.atTrash)
+                return true;
+            });
             break;
           case "unread":
-            emailsToShow = this.emails.filter(
-              (email) => email.isRead === false
-            );
+            emailsToShow = this.emails.filter((email) => {
+              if (email.isRead === false && !email.atTrash) return true;
+            });
+            break;
+          case "trash":
+            emailsToShow = this.emails.filter((email) => email.atTrash);
             break;
           default:
           case "inbox":
-            emailsToShow = this.emails.filter(
-              (email) => email.from !== "team2@email.com"
-            );
+            emailsToShow = this.emails.filter((email) => {
+              if (email.from !== "team2@email.com" && !email.atTrash)
+                return true;
+            });
             break;
         }
       }
