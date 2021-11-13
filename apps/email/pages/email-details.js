@@ -4,7 +4,7 @@ export default {
   components: {},
   props: [""],
   template: `
-      <section  class="email-details flex column"> 
+      <section  class="email-details flex column grow-1"> 
         <header class="flex space-between">
           <div></div>
           <div>
@@ -12,12 +12,13 @@ export default {
           </div>
         </header>
         <div>From: <span>{{from}}</span></div>
+        <hr>
         <div>Topic: <span>{{topic}}</span></div>
         <hr>
-        <p>{{body}}</p>
+        <p class="flex column grow-1">{{body}}</p>
         <hr>
-        <nav class="flex">
-          <div  class="fa fa-reply" title="Reply"></div>
+        <nav class="flex row align-center">
+          <div  class="btn fa fa-reply" title="Reply"></div>
           <div @click="deleteEmail(email.id)" class="btn fa fa-trash-o" title="Delete"></div>
         </nav>
     </section>

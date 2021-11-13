@@ -33,6 +33,10 @@
   font-size: 0.9em;
 }
 
+.email-peak p{
+overflow: hidden;
+}
+
 .email-peak header {
   background-color: #eae2b7;
   border-left: 1px solid rgba(0, 0, 0, 0.2);

@@ -93,13 +93,27 @@ body {
 /* HOME */
 .home {
   text-align: center;
-  /* background-image: url(../imgs/backGroung-home.png);
-  background-repeat: no-repeat;
-  background-size: cover; */
+}
+
+.home-width {
+  max-width: 700px;
 }
 
 .home h1 {
   font-size: 3rem;
+}
+
+/* ABOUT */
+.appsus-about > * {
+  text-align: center;
+}
+
+.appsus-about h1 {
+  font-size: 3rem;
+}
+
+.filler {
+  margin-top: 10em;
 }
 
 /* FOOTER */

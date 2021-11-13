@@ -43,6 +43,7 @@ export default {
     this.loadEmail();
     eventBus.$on("sendStatus", this.changeStatus);
     eventBus.$on("sendToTrash", this.sendToTrash);
+    eventBus.$on("compose", this.setFilter);
   },
   methods: {
     loadEmail() {

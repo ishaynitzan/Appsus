@@ -40,11 +40,11 @@ export default {
           <hr>
           <div>Topic: <span>{{email.subject}}</span></div>
           <hr>
-          <p>{{email.body}}</p>
+          <p><pre>{{email.body}}</pre></p>
           <hr>
         </main>
         <nav class="flex">
-          <div class="btn fa fa-reply" title="Reply"></div>
+          <div @click="composeMail(email.id)" class="btn fa fa-reply" title="Reply"></div>
           <div @click="sendToTrash(email.id)" class="btn fa fa-trash-o" title="Delete"></div>
         </nav>
     </section>
@@ -105,6 +105,10 @@ export default {
       this.$emit("openDetails");
       this.$router.push("/email/details/" + `${id}`).catch(() => {});
     },
+    composeMail(id){
+      eventBus.$emit("compose",'new');
+      this.$router.push("/email/details/" + `${id}`).catch(() => {});
+    }
   },
   computed: {},
   destroyed() {},

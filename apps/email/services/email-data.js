@@ -2,7 +2,7 @@ export const gEmail = [
   {
     id: "e101",
     subject: "We just added a TV show you might like.",
-    body: "You\n Joe Goldberg (Penn Badgely) is back -- or was he always right behind you this whole time? -- for the third season of Netflix's creepy stalker drama, except this time he may not be the one to go to extreme lengths to get what he wants. Now in California and married (!!) to Love (Victoria Pedretti), Joe is raising his son in a chill suburb and everything is going great. OK, not really, because Joe's gotta Joe and he develops an unhealthy obsession with his new neighbor. But will Love let him do his thing? ",
+    body: "You\n Joe Goldberg  is back -- or was he always right behind you this whole time? -- for the third season of Netflix's creepy stalker drama, except this time he may not be the one to go to extreme lengths to get what he wants. Now in California and married (!!) to Love (Victoria Pedretti), Joe is raising his son in a chill suburb and everything is going great. OK, not really, because Joe's gotta Joe and he develops an unhealthy obsession with his new neighbor. But will Love let him do his thing? ",
     isRead: false,
     sentAt: 1636133342918,
     from: "netflix@mailer.netflix.com",
