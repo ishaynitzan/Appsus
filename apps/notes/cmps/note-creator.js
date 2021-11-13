@@ -8,8 +8,13 @@ const textNote = {
     `,
     data() {
         return {
-            text: 'hello',
-            title: 'hi',
+            note:{
+                info:{
+                    text: null,
+                    title:null,
+                },
+                type: "textNote",
+        },
         };
     },
     methods: {
@@ -172,7 +177,7 @@ export default {
       <section class="note-creator flex column align-center"> 
       <div class="modal-bg">
         <div class="modal">
-        <button @click="closeNote">x</button>
+        <button @click="closeNote" class="close-modal tablinks fa fa-times"></button>
         <h3>Create a Note</h3>
         <div class="tab notes-tab flex-row">
             <button class="tablinks fa fa-file-text-o" title="Text Note" @click="notePicker('textNote')"></button>
@@ -184,7 +189,7 @@ export default {
          <input type="text" v-model="currNote.data.title" placeholder="Title">
          <component :is="currNote.type" :data="currNote" @setInput="setInput"></component>
          <textarea v-model="currNote.data.text" placeholder="Text"></textarea></div>
-         <button @click="saveNote">save</button></div></div>
+         <button @click="saveNote" class="close-modal tablinks fa fa-floppy-o"></button></div></div>
       </section>
       `,
     data() {
@@ -202,18 +207,19 @@ export default {
     created()  {  
     },
     methods: {
-        saveNote(url) {
+        saveNote() {
+            console.log('savenote start');
             const note =  {
                 id: null,
-                type: this.currNote.type,
+                type: this.currNote.type ? this.currNote.type: "textNote",
                 isPinned: false,
                 info: this.currNote.data,             
                 madeAt: Date.now(),
             };
             notesService.save(note).then(()=>{
-                this.$emit("query")
+                this.$emit("sendQuery");
+                this.$emit("onClose");
             });
-            this.$emit("onClose");
           },
         closeNote() {
             this.$emit("onClose");

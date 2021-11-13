@@ -25,7 +25,7 @@ export default {
         <ul>
            <li v-for="note in notes" :key="note.id" class="note-preview-container flex">
                 <div class="justify-center align-center flex column">
-                    <component :is="note.type" :note="note" @click="seeNote(note.id)"> </component>
+                    <component :is="note.type" :note="note" @click="seeNote(note.id)"></component>
                  </div>
            </li>
         </ul>

@@ -26,7 +26,9 @@ export default {
     eventBus.$on("query",this.query);
   },
   methods: {
+
     query() {
+      console.log('query');
       notesService.query().then((notesFromStorage) => {
         this.notes = notesFromStorage;
       });
@@ -41,10 +43,11 @@ export default {
     },
     setIsNoteCreatorVis(){
       this.isNoteCreatorOpen = !this.isNoteCreatorOpen;
-    }
+    },
   },
   computed: {
     notesForPreview(){
+      console.log('in preview')
       if (!this.filterBy) {
         return this.notes;}
       }
@@ -56,9 +59,9 @@ export default {
       <note-filter @filterBy="setFilter" class="main-container"/>
       <section class="notes-body main-container flex column">
          <h1>Welcome to Notes</h1>
-          <note-search class="db"/>
-          <button @click="setIsNoteCreatorVis" class="createNote">Editor</button>
-          <note-creator v-if="isNoteCreatorOpen" @onClose="setIsNoteCreatorVis" @query="query"/>
+          <note-search class="note-search"/>
+          <button @click="setIsNoteCreatorVis" class="createNote note-editor">Editor</button>
+          <note-creator v-if="isNoteCreatorOpen" @sendQuery="query" @onClose="setIsNoteCreatorVis" />
            <notes-list :notes="notesForPreview"/>
         </section>
     </section>

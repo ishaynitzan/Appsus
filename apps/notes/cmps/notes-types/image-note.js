@@ -11,10 +11,8 @@ export default {
         <h5>{{note.info.title}}</h5>
         <h6>{{note.info.text}}</h6>
         <img :src="note.info.url" class="img-preview">
-        <nav>
-            <button @click="deleteNote(note.id)">X</button>
-            <button @click="editNote(note.id)">EDIT</button>
-        </nav>
+        <nav><button @click="deleteNote(note.id)" class="note-btn fa fa-times"></button>
+        <button @click="editNote(note.id)" class="note-btn fa fa-pencil-square-o"></button></nav>
     </section>
     `,
     data() {

@@ -12,6 +12,8 @@ export default {
                 <div>
                      <a :href="note.info.url">go to {{note.info.title}}</a>
                 </div>
+                <button @click="deleteNote(note.id)" class="note-btn fa fa-times"></button>
+                <button @click="editNote(note.id)" class="note-btn fa fa-pencil-square-o"></button>
             </label>
         </div>
     `,
