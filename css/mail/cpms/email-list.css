@@ -26,15 +26,22 @@
   width: 110px;
 }
 
-.subject {
+.from-container {
   width: 5rem;
 }
-.preview-body {
+.from {
+  width: 4rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; 
+  display: block; 
+}
+.preview-subject-container {
   font-size: 0.9em;
 }
 
-.email-peak p{
-overflow: hidden;
+.email-peak p {
+  overflow: hidden;
 }
 
 .email-peak header {
