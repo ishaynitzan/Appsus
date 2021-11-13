@@ -33,14 +33,8 @@ export default {
         this.notes = notesFromStorage;
       });
     },
-    setFilter(filterBy) {
-      this.filterBy = filterBy
-    },
-    filteredNotes(){
-      const filteredNotes = null;
-      filteredNotes = this.notes.filter(note => note.type === this.filterBy);
-      this.notes = filteredNotes;
-      console.log(filteredNotes, 'filterd?');
+    setFilter(filter) {
+      this.filterBy = filter;
     },
     deleteNote(id) {
       notesService.remove(id).then(() => {
@@ -55,7 +49,37 @@ export default {
     notesForPreview(){
       console.log('in preview')
       if (!this.filterBy) {
-        return this.notes;}
+        return this.notes;
+      } else {
+        var notesForList = null;
+        switch (this.filterBy) {
+          case "textNote":
+            notesForList = this.notes.filter(note => this.notes.type === "textNote");
+            break;
+          case "linkNote":
+            notesForList = this.notes.filter((note) => {
+              if (email.from === "team2@email.com" && !email.atTrash)
+                return true;
+            });
+            break;
+          case "imageNote":
+            notesForList = this.notes.filter((note) => {
+              if (email.isRead === false && !email.atTrash) return true;
+            });
+            break;
+          case "todoNote":
+            notesForList = this.notes.filter((note) => email.atTrash);
+            break;
+          default:
+          case "all":
+            notesForList = this.notes.filter((note) => {
+              if (email.from !== "team2@email.com" && !email.atTrash)
+                return true;
+            });
+            break;
+        }
+      }
+      return notesForList;
       }
     },
     destroyed() {},
