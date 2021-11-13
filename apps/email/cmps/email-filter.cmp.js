@@ -6,8 +6,8 @@ export default {
     template: `
     <section>
       <section class="email-filter flex space-evenly align-center justify-center"> 
-          <input @input="filter" v-model="search" type="text"> 
-          <div class="btn fa fa-search" title="Search"></div>
+      <input @input="filter" v-model="search" type="search" class="input-search" placeholder="Search:"> 
+  
       </section>
       <section class="email-sort flex align-center space-between"> 
         <div class="flex space-evenly align-center justify-center">

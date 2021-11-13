@@ -12,6 +12,10 @@
   font-family: Product;
   src: url(../fonts/product-sans/Product\ Sans\ Regular.ttf); 
 }
+@font-face {
+  font-family: Product-bold;
+  src: url(../fonts/product-sans/Product\ Sans\ Bold.ttf); 
+}
 
 * {
   box-sizing: border-box;
