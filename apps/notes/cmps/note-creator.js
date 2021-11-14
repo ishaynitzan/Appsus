@@ -207,10 +207,11 @@ export default {
     created()  {
             console.log(this.noteToEdit);
             if(this.noteToEdit && this.noteToEdit.id) {
-            this.noteHeader = 'Edit your note:';
             this.currNote.id = this.noteToEdit.id;
             this.currNote.data.text = this.noteToEdit.info.text;
             this.currNote.data.title = this.noteToEdit.info.title;
+            this.currNote.data.url = this.noteToEdit.info.url;
+
             } 
     },
     methods: {

@@ -9,6 +9,12 @@ export default {
     <section class="note todo-note">
         <h5>{{note.info.title}}</h5>
         <h6>{{note.info.txt}}</h6>
+        <ul>
+            <li v-for="(todo, idx) in note.info.todos" :key="idx">
+            <div class="fa fa-check-circle-o">
+            <h6>{{todo.text}}</h6>
+                    </div>            </li>
+        </ul>
                 <nav><button @click="deleteNote(note.id)" class="note-btn fa fa-times"></button>
                 <button @click="editNote(note.id)" class="note-btn fa fa-pencil-square-o"></button></nav>
         </section>
@@ -30,7 +36,7 @@ export default {
         }
     },
         editNote(id) {
-
+            this.$emit("editNote", id);
         },
 
 

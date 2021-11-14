@@ -20,7 +20,7 @@ background: linear-gradient(to right, #eae2b7 0%, #eae2b7 80%, #e7dfb4 100%);
 }
 
 .note {
-    height: 15vh;
+    height: 15.5vh;
     overflow: visible;
     width: 100px;
     background: linear-gradient(to right, #fcbf49 0%, #ffd072 50%, #fcbf49 100%);
