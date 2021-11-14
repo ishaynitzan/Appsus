@@ -31,8 +31,8 @@ export const gNotes = [
     type: "imageNote",
     isPinned: false,
     info: {
-       url: 'https://images.ctfassets.net/hrltx12pl8hq/2TRIFRwcjrTuNprkTQHVxs/088159eb8e811aaac789c24701d7fdb1/LP_image.jpg?fit=fill&w=632&h=354&fm=webp',
-       title: "my pic"
+       url: 'https://images.freeimages.com/images/large-previews/67b/too-cute-1317123.jpg',
+       title: "my dog"
       },
     madeAt: 1636817090782,
     style: {
@@ -45,7 +45,15 @@ export const gNotes = [
      isPinned: true,
      info: {
          text: "I should buy stuff",
-         title: "todo shoping list",
+         title: "shoping list",
+         todos: [
+            {
+                text: "drive to a store",
+            },
+            {
+                text: "buy stuff",
+            },
+        ]
          },
     madeAt: 1636817091782,
      style: {
@@ -74,6 +82,14 @@ export const gNotes = [
     info: {
         text: "Doing stuff",
         title: "todo",
+        todos: [
+            {
+                text: "take my key",
+            },
+            {
+                text: "watch a movie",
+            },
+        ]
         },
     madeAt: 1636817093782,
     style: {
@@ -86,7 +102,7 @@ export const gNotes = [
     type: "imageNote",
     isPinned: false,
     info: {
-       url: 'https://images.ctfassets.net/hrltx12pl8hq/2TRIFRwcjrTuNprkTQHVxs/088159eb8e811aaac789c24701d7fdb1/LP_image.jpg?fit=fill&w=632&h=354&fm=webp',
+       url: 'https://images.freeimages.com/images/small-previews/cfa/hanging-out-1435229.jpg',
        title: "my pic"
       },
     madeAt: 1636817094782,
@@ -115,7 +131,7 @@ export const gNotes = [
         url: "https://www.facebook.com/",
         title: "Facebook",
     },
-    madeAt: 1636817096782,
+    madeAt: 1636810096782,
     style: {
         backgroundColor: "#eae2b7"
     },
