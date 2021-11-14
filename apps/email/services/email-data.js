@@ -2,23 +2,31 @@ export const gEmail = [
   {
     id: "e101",
     subject: "We just added a TV show you might like.",
-    body: "You\n Joe Goldberg  is back -- or was he always right behind you this whole time? -- for the third season of Netflix's creepy stalker drama, except this time he may not be the one to go to extreme lengths to get what he wants. Now in California and married (!!) to Love (Victoria Pedretti), Joe is raising his son in a chill suburb and everything is going great. OK, not really, because Joe's gotta Joe and he develops an unhealthy obsession with his new neighbor. But will Love let him do his thing? ",
+    body: `You
+          Joe Goldberg  is back -- or was he always right behind you this whole time?
+          for the third season of Netflix's creepy stalker drama,
+          except this time he may not be the one to go to extreme
+          lengths to get what he wants. Now in California and married
+          to Love (Victoria Pedretti), Joe is raising his son in a chill
+          suburb and everything is going great. OK, not really, because
+          Joe's gotta Joe and he develops an unhealthy obsession with
+          his new neighbor. But will Love let him do his thing? `,
     isRead: false,
     sentAt: 1636133342918,
     from: "netflix@mailer.netflix.com",
-    isStared : false,
+    isStared: false,
     to: "team2@eamil.com",
   },
   {
     id: "e102",
     subject: "Your profile is looking great",
     body: `Your profile is looking great\n
-    Your work and accomplishments are being recognized\n
-    text.link('https://www.linkedin.com/')`,
-    isRead: false,
+           Your work and accomplishments are being recognized\n
+   `,
+    isRead: true,
     sentAt: 1636233342918,
     from: "linkedin@linkedin.com",
-    isStared : true,
+    isStared: true,
     to: "team2@eamil.com",
   },
   {
@@ -37,132 +45,65 @@ export const gEmail = [
     isRead: false,
     sentAt: 1636333342918,
     from: "JH-Experience@rock.com",
-    isStared : true,
+    isStared: true,
     to: "team2@eamil.com",
   },
   {
     id: "e104",
     subject: "15% Discount on flexible orders",
     body: `It's time for vacation\n
-    Enjoy the end of 2021 with discounts of 15% and up\n
-    Valid for stays with check-out date before 4 January 2022\n	
-    You will save even more, if you combine this promotion with Genius benefits.\n
-    text.link('https://www.booking.com')
+           Enjoy the end of 2021 with discounts of 15% and up\n
+           Valid for stays with check-out date before 4 January 2022\n	
+           You will save even more, if you combine this promotion with Genius benefits.\n
     `,
     isRead: false,
     sentAt: 1636433342918,
-    from: "momo@momo.com",
-    isStared : true,
+    from: "booking@booking.com",
+    isStared: true,
     to: "team2@eamil.com",
   },
   {
     id: "e105",
-    subject: "Ebay",
-    body: ``,
+    subject: "Facebook",
+    body: `Meta, the company formerly known as Facebook,
+           said Tuesday it plans to limit advertisers' ability to
+           target users based on certain sensitive categories.
+           Starting next year, it will remove thousands of "Detailed Targeting"
+           keywords to target ads to specific users in
+           categories such as health, race or ethnicity,
+           political affiliation, religion and sexual orientation.`,
     isRead: false,
     sentAt: 1636533342918,
-    from: "booking@sg.booking.com",
-    isStared : true,
+    from: "Facebook@email.com",
+    isStared: true,
     to: "team2@eamil.com",
   },
   {
     id: "e106",
-    subject: "Ebay",
-    body: ``,
+    subject: "coding-academy",
+    body:  `Academic Coding has transferred all courses to LIVE.
+            The same instructors, the same practitioners,
+            the same personal attitude now using the ZOOM app in your home.
+            Hundreds of students have already chosen to make the most
+            of these days and learn to program in the leading and well-known
+            programming course in the country.
+            Intensive 12 weeks of programming studies followed by
+            rapid integration into the high-tech industry.`,
     isRead: false,
     sentAt: 1636633342918,
-    from: "momo@momo.com",
-    isStared : true,
+    from: "coding-academy@academy.com",
+    isStared: true,
     to: "team2@eamil.com",
   },
   {
     id: "e107",
-    subject: "Ebay",
-    body: ``,
+    subject: "beautiful design",
+    body: `I would love to build together the project we received.
+           Do you have any ideas for a beautiful design for an opening page?`,
     isRead: false,
     sentAt: 1636733342918,
-    from: "momo@momo.com",
-    isStared : true,
-    to: "team2@eamil.com",
-  },
-  {
-    id: "e108",
-    subject: "Ebay",
-    body: ``,
-    isRead: false,
-    sentAt: 1636833342918,
-    from: "momo@momo.com",
-    isStared : false,
-    to: "team2@eamil.com",
-  },
-  {
-    id: "e109",
-    subject: "Ebay",
-    body: ``,
-    isRead: false,
-    sentAt: 1636933342918,
-    from: "momo@momo.com",
-    isStared : false,
-    to: "team2@eamil.com",
-  },
-  {
-    id: "e110",
-    subject: "Ebay",
-    body: ``,
-    isRead: false,
-    sentAt: 1636093342918,
-    from: "momo@momo.com",
-    isStared : false,
-    to: "team2@eamil.com",
-  },
-  {
-    id: "e111",
-    subject: "Ebay",
-    body: ``,
-    isRead: false,
-    sentAt: 1636533342918,
-    from: "momo@momo.com",
-    isStared : false,
-    to: "team2@eamil.com",
-  },
-  {
-    id: "e112",
-    subject: "Ebay",
-    body: ``,
-    isRead: false,
-    sentAt: 1636533342918,
-    from: "momo@momo.com",
-    isStared : false,
-    to: "team2@eamil.com",
-  },
-  {
-    id: "e113",
-    subject: "Ebay",
-    body: ``,
-    isRead: false,
-    sentAt: 1636533342918,
-    from: "momo@momo.com",
-    isStared : false,
-    to: "team2@eamil.com",
-  },
-  {
-    id: "e114",
-    subject: "Ebay",
-    body: ``,
-    isRead: false,
-    sentAt: 1636533342918,
-    from: "momo@momo.com",
-    isStared : false,
-    to: "team2@eamil.com",
-  },
-  {
-    id: "e115",
-    subject: "Ebay",
-    body: ``,
-    isRead: false,
-    sentAt: 1636533342918,
-    from: "momo@momo.com",
-    isStared : false,
+    from: "ishay@email.com",
+    isStared: true,
     to: "team2@eamil.com",
   },
   {
@@ -172,17 +113,24 @@ export const gEmail = [
     isRead: true,
     sentAt: 1636433342918,
     from: "bobo@bobo.com",
-    isStared : false,
+    isStared: false,
     to: "team2@eamil.com",
   },
   {
     id: "e117",
-    subject: "NO more",
-    body: "NO more NO more",
+    subject: "NO more vanilla JS",
+    body: `Vanilla JS is important, But, Why, Do I have my own hypothesis?
+           It was literally a Hypothesis. And, there are numerous type of learning JavaScript.
+           I have been struggling which direction I should follow, What if I want to follow
+           the alternative way to make vanilla JS projects first of all,
+           and growing problem solving skills by algorithms?
+
+           This means that I am not going to be passionate about
+           the traditional way to learn.`,
     isRead: true,
     sentAt: 1636333342918,
-    from: "nono@nono.com",
-    isStared : false,
+    from: "JS@vanilla.com",
+    isStared: false,
     to: "team2@eamil.com",
   },
   {
@@ -192,17 +140,7 @@ export const gEmail = [
     isRead: false,
     sentAt: 1636233342918,
     from: "mimi@mimi.com",
-    isStared : false,
-    to: "team2@eamil.com",
-  },
-  {
-    id: "e119",
-    subject: "sent",
-    body: "sent sent sent",
-    isRead: true,
-    sentAt: 1551136930594,
-    from: "team2@email.com",
-    isStared : false,
+    isStared: false,
     to: "team2@eamil.com",
   },
 ];
