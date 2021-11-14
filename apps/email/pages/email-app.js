@@ -156,6 +156,11 @@ export default {
               if (email.isRead === false && !email.atTrash) return true;
             });
             break;
+          case "drafts":
+            emailsToShow = this.emails.filter((email) => {
+              if (email.isDraft === true && !email.atTrash) return true;
+            });
+            break;
           case "trash":
             emailsToShow = this.emails.filter((email) => email.atTrash);
             break;

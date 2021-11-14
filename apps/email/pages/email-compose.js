@@ -60,7 +60,18 @@ export default {
       });
     },
     saveDraft(draft){
-      console.log(draft);
+      const email = {
+        id: this.draftId,
+        subject: this.subject,
+        body: this.body,
+        isRead: true,
+        isDraft : true,
+        sentAt: Date.now(),
+        from: "team2@email.com",
+        to: this.to,
+      };
+
+      emailService.save(email)
     }
   },
   computed: {
